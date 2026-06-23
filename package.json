@@ -1,0 +1,44 @@
+{
+  "name": "kura-landing-page",
+  "version": "1.0.0",
+  "description": "Official marketing website for Kura Finance — built with Nuxt 3, Vue 3, and Tailwind CSS.",
+  "license": "MIT",
+  "type": "module",
+  "author": "Kura Finance LLC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kura-Finance/LandingPage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kura-Finance/LandingPage/issues"
+  },
+  "homepage": "https://kura-finance.com",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "typecheck": "nuxi typecheck"
+  },
+  "dependencies": {
+    "@nuxt/content": "^2.13.4",
+    "@nuxt/image": "^2.0.0",
+    "@nuxtjs/tailwindcss": "^6.10.0",
+    "@tailwindcss/typography": "^0.5.20",
+    "nuxt": "^3.11.0",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/node": "^20",
+    "postcss": "^8.4.32",
+    "typescript": "^5"
+  },
+  "overrides": {
+    "vite": "7.3.2"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

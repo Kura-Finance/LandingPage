@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /community
+
+Sitemap: https://kura-finance.com/sitemap.xml
