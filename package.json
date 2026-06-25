@@ -18,6 +18,8 @@
     "build": "nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
+    "preview:cf": "wrangler pages dev dist",
+    "deploy:cf": "wrangler pages deploy dist",
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
@@ -35,7 +37,8 @@
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.17",
     "typescript": "^5",
-    "vue-tsc": "^3.3.5"
+    "vue-tsc": "^3.3.5",
+    "wrangler": "^4.24.0"
   },
   "overrides": {
     "vite": "7.3.2"

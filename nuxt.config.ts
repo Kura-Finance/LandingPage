@@ -53,9 +53,11 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
+    preset: 'cloudflare_pages',
     prerender: {
       crawlLinks: true,
       routes: ['/sitemap.xml', '/feed.xml'],
+      autoSubfolderIndex: false,
     },
     compressPublicAssets: true,
   },
@@ -81,7 +83,7 @@ export default defineNuxtConfig({
     '/resources/on-off-ramp-countries': { redirect: { to: '/docs/on-off-ramp-countries', statusCode: 301 } },
     '/community': { prerender: true },
     '/business': { prerender: true },
-    '/investors': { swr: 600 },
+    '/investors': { prerender: false, swr: 600 },
     '/privacy': { prerender: true },
     '/tos': { prerender: true },
     '/disclaimer': { prerender: true },

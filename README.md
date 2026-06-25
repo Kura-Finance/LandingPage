@@ -142,16 +142,42 @@ Each file includes `lastUpdated` and `sourceUrl` pointing to the partner's offic
 
 ## Deployment
 
-The site uses **SSR with prerendering**. Recommended approach:
+### Cloudflare Pages (recommended)
+
+This site uses the Nitro `cloudflare_pages` preset — static pages are prerendered, while `/investors` and API proxy routes run as **Pages Functions**.
+
+**Cloudflare Dashboard (Git integration)**
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node.js version | `22` |
+
+**Manual deploy**
+
+```bash
+npm run build
+npm run deploy:cf
+```
+
+**Local preview (Pages Functions)**
+
+```bash
+npm run build
+npm run preview:cf
+```
+
+Configuration lives in `wrangler.toml` (`nodejs_compat` enabled for Nitro server routes).
+
+### Other Node hosts
 
 ```bash
 npm run build
 node .output/server/index.mjs
 ```
 
-Deploy the `.output/` directory to any Node-compatible host (Vercel, Cloudflare Workers, AWS, GCP Cloud Run, etc.). Nitro handles the server bundle.
-
-For fully static hosting, run `npm run generate` and deploy the output — note that server routes (`sitemap.xml`, `feed.xml`) require SSR or equivalent serverless functions unless prerendered.
+Use `NITRO_PRESET=node_server npm run build` if you need the default Node server bundle instead of `dist/`.
 
 ## Contributing
 
