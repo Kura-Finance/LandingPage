@@ -41,7 +41,7 @@ Legacy `/resources/*` URLs redirect to `/docs/*` with 301.
 
 ### Prerequisites
 
-- Node.js **20.19+** (see `.nvmrc`)
+- Node.js **22.12+** (see `.nvmrc`)
 - npm
 
 ### Install

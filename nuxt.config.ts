@@ -81,6 +81,7 @@ export default defineNuxtConfig({
     '/resources/on-off-ramp-countries': { redirect: { to: '/docs/on-off-ramp-countries', statusCode: 301 } },
     '/community': { prerender: true },
     '/business': { prerender: true },
+    '/investors': { swr: 600 },
     '/privacy': { prerender: true },
     '/tos': { prerender: true },
     '/disclaimer': { prerender: true },

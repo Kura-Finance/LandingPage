@@ -58,6 +58,27 @@
         </section>
 
         <section class="mb-10 md:mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-6">Investors & API</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <NuxtLink
+              to="/investors"
+              class="group rounded-2xl border border-kura-border bg-gradient-to-br from-white/[0.04] to-transparent p-6 hover:border-kura-primary/40 transition-all duration-300"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs uppercase tracking-widest font-bold text-kura-primary">Platform Insights</span>
+                <span class="text-[11px] px-2 py-1 rounded-full border border-kura-accent/40 text-kura-accent">
+                  Published
+                </span>
+              </div>
+              <h3 class="text-xl font-bold mb-3 group-hover:text-kura-primary transition-colors">Investor Metrics</h3>
+              <p class="text-sm text-kura-text-secondary leading-relaxed">
+                Live revenue, waitlist, subscription, and SCA AUM figures from the Kura platform.
+              </p>
+            </NuxtLink>
+          </div>
+        </section>
+
+        <section class="mb-10 md:mb-12">
           <h2 class="text-2xl md:text-3xl font-bold mb-6">Architecture & Technical</h2>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <article

@@ -19,7 +19,7 @@ npm install
 npm run dev
 ```
 
-Use Node.js **20.19+** (see `.nvmrc`).
+Use Node.js **22.12+** (see `.nvmrc`).
 
 ## Before opening a PR
 

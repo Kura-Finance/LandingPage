@@ -49,6 +49,9 @@
           <h4 class="font-semibold text-kura-text text-sm uppercase tracking-widest">Company</h4>
           <ul class="space-y-2">
             <li>
+              <NuxtLink to="/investors" class="text-sm text-kura-text-secondary hover:text-kura-text transition-colors">Investors</NuxtLink>
+            </li>
+            <li>
               <NuxtLink to="/about" class="text-sm text-kura-text-secondary hover:text-kura-text transition-colors">About</NuxtLink>
             </li>
             <li>
