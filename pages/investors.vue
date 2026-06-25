@@ -6,7 +6,7 @@ import type {
   ScanResult,
   ScaAnalyticsSummaryData,
 } from '~/types/platform-insights'
-import { KURA_API_BASE, formatCount, formatDate, formatUsd } from '~/utils/kura-api'
+import { formatCount, formatDate, formatUsd } from '~/utils/kura-api'
 import {
   getBackfillSuccessMessage,
   getLazyUpdateMessage,
@@ -26,13 +26,13 @@ usePageSeo({
 
 const { data: platformRes, status: platformStatus, refresh: refreshPlatform } = await useFetch<
   ApiResponse<PlatformSummaryData>
->(`${KURA_API_BASE}/api/platform-insights/summary`, {
+>('/api/platform-insights/summary', {
   key: 'platform-insights-summary',
 })
 
 const { data: scaRes, status: scaStatus, refresh: refreshSca } = await useFetch<
   ApiResponse<ScaAnalyticsSummaryData>
->(`${KURA_API_BASE}/api/sca-analytics/summary`, {
+>('/api/sca-analytics/summary', {
   key: 'sca-analytics-summary',
 })
 
