@@ -17,7 +17,7 @@ This repository powers Kura's public-facing web presence — product pages, docu
 | --- | --- | --- |
 | **Product** | `/`, `/kura-wallet`, `/kura-card`, `/trackfi`, `/pricing`, `/download` | Core product marketing pages |
 | **Blog** | `/blog`, `/blog/[slug]` | Markdown-powered blog via `@nuxt/content` |
-| **Documentation** | `/docs`, `/docs/stock-countries`, `/docs/card-countries`, `/docs/on-off-ramp-countries` | Supported regions for Dinari, Gnosis Pay, Bridge.xyz, and MoonPay |
+| **Documentation** | `/docs`, `/docs/stock-countries`, `/docs/on-off-ramp-countries` | Supported regions for Dinari, Bridge.xyz, and MoonPay |
 | **Trust & Legal** | `/privacy`, `/tos`, `/disclaimer`, `/compliance` | Privacy, terms, and compliance disclosures |
 | **Company** | `/about`, `/business`, `/community`, `/help` | About, business inquiries, community, and help |
 
@@ -82,7 +82,7 @@ npm run typecheck # TypeScript / Vue type checking
 │   └── usePageSeo.ts          # Per-page SEO meta, Open Graph, JSON-LD
 ├── content/blog/              # Blog posts (Markdown)
 ├── css/globals.css            # Global styles
-├── data/coverage/             # Partner country lists (Bridge, MoonPay, Dinari, Gnosis Pay)
+├── data/coverage/             # Partner country lists (Bridge, MoonPay, Dinari)
 ├── layouts/default.vue
 ├── pages/                     # File-based routing
 ├── public/                    # Static assets (favicon, images, robots.txt)
@@ -135,7 +135,6 @@ Country availability lists are maintained in `data/coverage/`:
 | --- | --- | --- |
 | `bridge-countries.ts` | Bridge.xyz | `/docs/on-off-ramp-countries` |
 | `moonpay-countries.ts` | MoonPay | `/docs/on-off-ramp-countries` |
-| `gnosis-pay-countries.ts` | Gnosis Pay | `/docs/card-countries` |
 | `dinari-countries.ts` | Dinari | `/docs/stock-countries` |
 
 Each file includes `lastUpdated` and `sourceUrl` pointing to the partner's official reference.

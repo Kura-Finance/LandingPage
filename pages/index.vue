@@ -1,118 +1,126 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: "default",
-});
+  layout: 'default',
+})
 
 usePageSeo({
   title: 'Kura Finance — The Super Financial App',
-  description: 'Trade crypto, RWA, and US stocks. Spend with Kura Card. Track all your finances in one self-custody super app.',
+  description:
+    'One app to manage all your finances, from tradFi to crypto. Trade, earn, spend with Kura Card, and track everything in a self-custody super app.',
   path: '/',
-  keywords: 'super financial app, crypto trading, RWA, US stocks, Kura Card, TrackFi, self-custody wallet',
+  keywords:
+    'fintech, super financial app, crypto wallet, US stocks, Morpho earn, Kura Card, TrackFi, self-custody',
   jsonLd: websiteSchema(),
-});
+})
+
+const pillars = [
+  {
+    value: 'Self-custody',
+    label: 'MPC keys never held by Kura servers',
+  },
+  {
+    value: 'Open source',
+    label: 'GPL-3.0 mobile client on GitHub',
+  },
+  {
+    value: 'Zero access encryption',
+    label: 'TrackFi data encrypted on your device before sync',
+  },
+]
+
+const splits = [
+  {
+    image: '/Privacy-first-architecture.webp',
+    alt: 'Kura wallet trading interface',
+    title: 'Trade across crypto, RWAs, and US stocks',
+    body: [
+      'Swap and bridge on Base via Li.Fi. Access tokenized real-world assets and US equities through Dinari — all from a Safe smart account you control.',
+      'Fiat ramps in USD, EUR, GBP, BRL, and MXN via Bridge. Card deposits and USDT on Tron via MoonPay when you need more on-ramps.',
+    ],
+    reverse: false,
+  },
+  {
+    image: '/Unified-finance-dashboard.webp',
+    alt: 'Kura Card and TrackFi dashboard',
+    title: 'Spend globally. See everything in one place.',
+    body: [
+      'Kura Card lets you spend USDC anywhere Visa is accepted — with 0.5% cashback on eligible spend and 0% foreign exchange fees. Join the waitlist in the app.',
+      'TrackFi connects Plaid banks, nine major CEX APIs, DeBank, and your on-chain wallets into one zero access encrypted net-worth view.',
+    ],
+    reverse: true,
+  },
+]
 </script>
 
 <template>
-  <div class="bg-kura-background">
+  <div>
     <HeroSection />
+    <TrustBar />
 
-    <section class="py-20 md:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-4xl md:text-6xl font-black tracking-tight text-kura-text">
-          One App. Every Financial Move.
-        </h2>
-        <p class="mt-6 text-lg md:text-xl text-kura-text-secondary max-w-3xl mx-auto">
-          Stop juggling a wallet, an exchange, a brokerage, a card, and a spreadsheet. Kura brings trading, spending, and tracking together in one super app — while you keep custody of your keys and your data.
-        </p>
-      </div>
-    </section>
-
-    <section class="pb-20 md:pb-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto space-y-16 md:space-y-20">
-        <div class="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
-          <div class="aspect-[4/3] rounded-xl overflow-hidden w-11/12 mx-auto">
-            <NuxtImg
-              src="/Privacy-first-architecture.webp"
-              alt="Trade crypto and stocks"
-              width="1448"
-              height="1086"
-              loading="lazy"
-              decoding="async"
-              sizes="(max-width: 768px) 90vw, 576px"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div class="space-y-6">
-            <h3 class="text-2xl md:text-3xl font-bold text-kura-text">
-              Trade crypto and US stocks from one wallet.
-            </h3>
-            <p class="text-kura-text-secondary leading-relaxed">
-              Swap tokens on Base, bridge across chains, and access tokenized real-world assets and US equities — all from a smart wallet that only you control.
-            </p>
-            <p class="text-kura-text-secondary leading-relaxed">
-              No separate exchange account. No separate brokerage. Just your keys, your trades, and your portfolio.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
-          <div class="order-2 md:order-1 space-y-6">
-            <h3 class="text-2xl md:text-3xl font-bold text-kura-text">
-              Spend with Kura Card. Track everything with TrackFi.
-            </h3>
-            <p class="text-kura-text-secondary leading-relaxed">
-              Spend your USDC anywhere Visa is accepted with a non-custodial card backed by your own wallet — no top-up to a custodian, no surrendering custody.
-            </p>
-            <p class="text-kura-text-secondary leading-relaxed">
-              Then connect your banks, brokers, and on-chain wallets with read-only access to see your full net worth in one passkey-encrypted dashboard.
-            </p>
-          </div>
-          <div class="order-1 md:order-2 aspect-[4/3] rounded-xl overflow-hidden w-11/12 mx-auto">
-            <NuxtImg
-              src="/Unified-finance-dashboard.webp"
-              alt="Kura Card and TrackFi"
-              width="1448"
-              height="1086"
-              loading="lazy"
-              decoding="async"
-              sizes="(max-width: 768px) 90vw, 576px"
-              class="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <LazyFeaturesSection />
-
-    <section class="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center space-y-8">
-        <div class="space-y-4">
-          <h2
-            class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-kura-primary to-kura-secondary bg-clip-text text-transparent"
-          >
-            Ready to get started?
+    <section class="py-20 md:py-24 bg-white">
+      <div class="marketing-container">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <p class="section-label mb-3">Why Kura</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-kura-text">
+            Built like a modern fintech, secured like a wallet
           </h2>
-          <p class="text-lg text-kura-text-secondary">
-            Download Kura and trade crypto, RWA, and US stocks — spend with your card and track all your finances in one place.
+          <p class="mt-4 text-lg text-kura-text-secondary leading-relaxed">
+            Founders shouldn't need five apps to move money. Kura combines trading, yield, spending, and tracking — with the privacy and control you'd expect from self-custody infrastructure.
           </p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-          <NuxtLink
-            to="/download"
-            class="px-8 py-4 rounded-lg bg-gradient-to-r from-kura-primary to-kura-secondary text-white font-semibold hover:shadow-lg hover:shadow-kura-primary/50 transition-all duration-300"
+        <div class="grid md:grid-cols-3 gap-6">
+          <div
+            v-for="pillar in pillars"
+            :key="pillar.value"
+            class="card-surface p-6 text-center md:text-left"
           >
-            Download App
-          </NuxtLink>
-          <NuxtLink
-            to="/pricing"
-            class="px-8 py-4 rounded-lg border-2 border-kura-accent text-kura-accent font-semibold hover:bg-kura-accent/10 transition-colors duration-300 text-center"
-          >
-            View Pricing
-          </NuxtLink>
+            <p class="text-2xl font-bold text-kura-text mb-2">{{ pillar.value }}</p>
+            <p class="text-sm text-kura-text-secondary leading-relaxed">{{ pillar.label }}</p>
+          </div>
         </div>
       </div>
     </section>
+
+    <section class="py-20 md:py-24 bg-kura-surface border-y border-kura-border">
+      <div class="marketing-container space-y-20 md:space-y-28">
+        <div
+          v-for="split in splits"
+          :key="split.title"
+          class="grid md:grid-cols-2 gap-10 md:gap-14 items-center"
+        >
+          <div :class="split.reverse ? 'md:order-2' : ''">
+            <div class="rounded-2xl overflow-hidden border border-kura-border shadow-card bg-white">
+              <NuxtImg
+                :src="split.image"
+                :alt="split.alt"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 520px"
+                class="w-full"
+              />
+            </div>
+          </div>
+          <div :class="split.reverse ? 'md:order-1' : ''" class="space-y-5">
+            <p class="section-label">Product</p>
+            <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-kura-text">
+              {{ split.title }}
+            </h3>
+            <p
+              v-for="(paragraph, i) in split.body"
+              :key="i"
+              class="text-kura-text-secondary leading-relaxed"
+            >
+              {{ paragraph }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <FeaturesSection />
+    <CTASection />
   </div>
 </template>

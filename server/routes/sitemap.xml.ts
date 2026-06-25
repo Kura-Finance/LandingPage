@@ -27,7 +27,6 @@ const STATIC_ROUTES: SitemapEntry[] = [
   { loc: absoluteUrl('/business'), lastmod: '2026-06-23', changefreq: 'monthly', priority: 0.65 },
   { loc: absoluteUrl('/investors'), lastmod: '2026-06-23', changefreq: 'daily', priority: 0.7 },
   { loc: absoluteUrl('/docs/stock-countries'), lastmod: '2026-06-21', changefreq: 'monthly', priority: 0.65 },
-  { loc: absoluteUrl('/docs/card-countries'), lastmod: '2026-06-21', changefreq: 'monthly', priority: 0.65 },
   { loc: absoluteUrl('/docs/on-off-ramp-countries'), lastmod: '2026-06-21', changefreq: 'monthly', priority: 0.65 },
   { loc: absoluteUrl('/compliance'), lastmod: '2026-06-21', changefreq: 'monthly', priority: 0.55 },
   { loc: absoluteUrl('/privacy'), lastmod: '2026-06-21', changefreq: 'yearly', priority: 0.5 },

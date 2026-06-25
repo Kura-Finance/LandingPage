@@ -15,9 +15,9 @@ Kura brings trading, spending, and tracking into one **Super Financial App** —
 
 **Kura Wallet** is your on-chain home base. Built with Privy MPC and Safe smart accounts on Base, it lets you hold and move crypto without surrendering your keys to a centralized exchange.
 
-**Kura Card** connects your self-custody balance to real-world spending through Gnosis Pay — a Visa card backed by assets you control, not a custodial balance held on your behalf.
+**Kura Card** connects your self-custody balance to real-world spending — a Visa card backed by assets you control, not a custodial balance held on your behalf.
 
-**TrackFi** gives you a unified view of your full financial picture. Link bank accounts via Plaid, on-chain wallets via DeBank, and see everything in one encrypted dashboard protected by passkey-based end-to-end encryption.
+**TrackFi** gives you a unified view of your full financial picture. Link bank accounts via Plaid, on-chain wallets via DeBank, and see everything in one dashboard protected by passkey-based zero access encryption.
 
 ## Trade across asset classes
 
@@ -37,7 +37,7 @@ Kura's architecture is different:
 
 - **Your keys, your wallet** — MPC key shards never give Kura unilateral access
 - **Zero-access tracking** — TrackFi data is encrypted on your device before it ever reaches our servers
-- **Transparent partners** — Every integration (Privy, Bridge, MoonPay, Dinari, Gnosis Pay, Plaid, DeBank) is disclosed in our legal docs
+- **Transparent partners** — Every integration (Privy, Bridge, MoonPay, Dinari, Plaid, DeBank) is disclosed in our legal docs
 
 ## Get started
 

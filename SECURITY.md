@@ -29,7 +29,7 @@ We aim to acknowledge reports within **3 business days** and will keep you updat
 This policy covers the **LandingPage** repository (marketing site source code). It does not cover:
 
 - The Kura mobile or web app
-- Third-party partner services (Bridge, MoonPay, Dinari, Gnosis Pay, etc.)
+- Third-party partner services (Bridge, MoonPay, Dinari, etc.)
 - Infrastructure or deployment credentials outside this repo
 
 ## Safe harbor

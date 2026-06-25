@@ -1,13 +1,12 @@
 <template>
-  <div class="min-h-screen bg-kura-background text-kura-text">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <!-- Header -->
-      <div class="mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-kura-text">Privacy Policy</h1>
-        <p class="text-kura-text-secondary text-lg">Last Updated: June 2026</p>
-      </div>
+  <div class="w-full text-kura-text bg-white">
+    <PageHero
+      eyebrow="Legal"
+      title="Privacy Policy"
+      description="Last updated: June 2026"
+    />
 
-      <!-- Content -->
+    <div class="marketing-container max-w-3xl pb-20 md:pb-28">
       <div class="prose max-w-none space-y-8">
         <!-- 1. Information We Collect -->
         <section>
@@ -17,8 +16,10 @@
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-2 text-kura-text-secondary leading-relaxed">
             <li><span class="font-semibold text-kura-text">Account data</span> — authentication identifiers from our login partner (such as email) and your public wallet addresses.</li>
-            <li><span class="font-semibold text-kura-text">Financial data you connect</span> — balances, transactions, and holdings from banks, exchanges, and on-chain wallets you link in TrackFi. This sensitive content is encrypted end-to-end and stored only as ciphertext.</li>
-            <li><span class="font-semibold text-kura-text">Verification data</span> — when you use the Kura Card or fiat ramps, identity (KYC) information is collected and processed directly by our regulated partners, not held in readable form by Kura.</li>
+            <li><span class="font-semibold text-kura-text">Financial data you connect</span> — balances, transactions, and holdings from banks, brokerages, read-only exchange API connections, and on-chain wallets you link in TrackFi. This sensitive content uses zero access encryption and is stored only as ciphertext on our servers.</li>
+            <li><span class="font-semibold text-kura-text">Verification data</span> — when you use the Kura Card, fiat ramps, or securities features, identity (KYC) information is collected and processed directly by our regulated partners (such as Bridge, Sumsub, or Dinari), not held in readable form by Kura.</li>
+            <li><span class="font-semibold text-kura-text">Subscription & billing data</span> — plan tier, payment status, and billing identifiers processed by Stripe or applicable app-store payment processors.</li>
+            <li><span class="font-semibold text-kura-text">Referral data</span> — referral codes, reward status, and related account identifiers needed to operate the referral program.</li>
             <li><span class="font-semibold text-kura-text">Technical data</span> — limited device, app, and diagnostic information needed for security and reliability.</li>
           </ul>
         </section>
@@ -27,7 +28,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">2. How We Use Your Information</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            We use data solely to provide and secure the Service — including wallet provisioning, trading and transfers, card and fiat ramp facilitation, account aggregation, and analytics you request. We do not sell your personal or financial data, and we do not use your financial records for advertising, ad targeting, or behavioral profiling.
+            We use data solely to provide and secure the Service — including wallet provisioning, trading and transfers, yield vault facilitation, card and fiat ramp facilitation, account aggregation, subscriptions, referrals, and analytics you request. We do not sell your personal or financial data, and we do not use your financial records for advertising, ad targeting, or behavioral profiling.
           </p>
         </section>
 
@@ -38,14 +39,21 @@
             Kura integrates independent providers to deliver specific features. When you use a feature, the relevant partner processes the data needed for that function under its own privacy policy:
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-2 text-kura-text-secondary leading-relaxed">
-            <li><span class="font-semibold text-kura-text">Privy</span> — authentication and embedded wallet key management (MPC).</li>
+            <li><span class="font-semibold text-kura-text">Privy</span> — authentication, OAuth sign-in, and embedded wallet key management (MPC).</li>
             <li><span class="font-semibold text-kura-text">Bridge</span> — fiat on/off ramp, virtual accounts, and related identity verification.</li>
             <li><span class="font-semibold text-kura-text">MoonPay</span> — card-based purchases of crypto.</li>
-            <li><span class="font-semibold text-kura-text">Dinari</span> — tokenized real-world assets and equities access.</li>
-            <li><span class="font-semibold text-kura-text">Gnosis Pay</span> — issuance and processing of the non-custodial debit card, including KYC.</li>
+            <li><span class="font-semibold text-kura-text">Li.Fi</span> — same-chain swaps and cross-chain bridges.</li>
+            <li><span class="font-semibold text-kura-text">Morpho</span> — DeFi yield vaults and related on-chain data.</li>
+            <li><span class="font-semibold text-kura-text">Dinari</span> — tokenized real-world assets and US equities access, including separate KYC.</li>
+            <li><span class="font-semibold text-kura-text">Sumsub</span> — identity verification for card partner onboarding.</li>
+            <li><span class="font-semibold text-kura-text">Card partners</span> — issuance and processing of the non-custodial debit card.</li>
+            <li><span class="font-semibold text-kura-text">Stripe</span> — subscription billing and payment processing.</li>
             <li><span class="font-semibold text-kura-text">Plaid</span> — read-only connections to your bank and investment accounts.</li>
+            <li><span class="font-semibold text-kura-text">CEX partners</span> — read-only API connections to supported exchanges (including Binance, Coinbase, Kraken, OKX, Bybit, and others) for balance tracking only; Kura cannot trade on your behalf.</li>
             <li><span class="font-semibold text-kura-text">DeBank</span> — on-chain token and DeFi position data for addresses you add.</li>
-            <li><span class="font-semibold text-kura-text">WalletConnect</span> — secure pairing between your wallet and external dApps.</li>
+            <li><span class="font-semibold text-kura-text">CoinGecko</span> — cryptocurrency market and price data.</li>
+            <li><span class="font-semibold text-kura-text">Pimlico</span> — smart-account transaction bundling and gas sponsorship on Base.</li>
+            <li><span class="font-semibold text-kura-text">WalletConnect (Reown)</span> — secure pairing between your wallet and external dApps or tracked wallets.</li>
           </ul>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             These integrations are scoped to the minimum data required and are designed to avoid unnecessary exposure of readable sensitive content to Kura.
@@ -56,7 +64,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">4. Zero-Access Security Model</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura follows a Zero-Access, non-custodial architecture. Your wallet keys are controlled by you, and we cannot move funds from your wallet or connected accounts. Financial data you store in TrackFi is encrypted end-to-end with a key unlocked by your device passkey, so our servers hold only ciphertext. Data in transit is protected with TLS. Because we do not maintain broad plaintext access to your sensitive data, we are structurally limited in what readable data can be produced — including if our systems are breached or when responding to third-party or government requests.
+            Kura follows a Zero-Access, non-custodial architecture. Your wallet keys are controlled by you, and we cannot move funds from your wallet or connected accounts. Financial data you store in TrackFi uses zero access encryption with a key unlocked by your device passkey, so our servers hold only ciphertext. Biometric data used to unlock your passkey stays on your device and is not transmitted to Kura. Data in transit is protected with TLS. Because we do not maintain broad plaintext access to your sensitive data, we are structurally limited in what readable data can be produced — including if our systems are breached or when responding to third-party or government requests.
           </p>
         </section>
 

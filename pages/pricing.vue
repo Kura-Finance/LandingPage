@@ -27,7 +27,7 @@ const plans = [
       },
       {
         title: 'Basic Kura Card',
-        description: 'Non-custodial Visa debit card for everyday USDC spending.',
+        description: 'Non-custodial Visa debit card for everyday USDC spending — waitlist open in app.',
       },
       {
         title: 'Zero-Access Core',
@@ -125,23 +125,16 @@ const handlePlanAction = () => {
 </script>
 
 <template>
-  <div class="w-full text-kura-text">
-    <!-- Main content -->
-    <main class="relative z-10 w-full px-4 sm:px-6 py-16 md:py-24">
-      <div class="max-w-7xl mx-auto">
-        <!-- Page Header -->
-        <section class="mb-20 text-center pt-16 md:pt-20">
-          <h1 class="text-5xl md:text-6xl font-black mb-6 tracking-tight">
-            Simple, <span class="bg-gradient-to-r from-kura-primary to-kura-secondary bg-clip-text text-transparent">Privacy-First Pricing</span>
-          </h1>
-          <p class="text-lg md:text-xl text-kura-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Choose the privacy layer that fits your operation. Every plan includes zero-access architecture and data sovereignty controls.
-          </p>
-        </section>
+  <div class="w-full text-kura-text bg-white">
+    <PageHero
+      eyebrow="Pricing"
+      title="Simple, privacy-first pricing"
+      description="Choose the plan that fits your operation. Every tier includes self-custody wallet, Kura Card access, and zero-access TrackFi."
+    />
 
-        <!-- Billing Toggle -->
-        <div class="flex justify-center mb-12">
-          <div class="inline-flex items-center gap-1 p-1 rounded-full border border-kura-border bg-kura-background-light">
+    <main class="marketing-container pb-20 md:pb-28">
+      <div class="flex justify-center mb-12">
+        <div class="inline-flex items-center gap-1 p-1 rounded-full border border-kura-border bg-kura-surface">
             <button
               type="button"
               class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200"
@@ -168,10 +161,7 @@ const handlePlanAction = () => {
         <div class="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16 justify-items-center max-w-6xl mx-auto">
           <div v-for="(plan, index) in displayPlans" :key="index" class="relative group flex">
             <!-- Glow effect for highlighted plan -->
-            <div v-if="plan.highlighted" class="absolute inset-0 bg-gradient-to-r from-kura-primary/20 to-kura-secondary/20 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            <!-- Card -->
-            <div class="relative w-full bg-gradient-to-br from-white/[0.05] to-transparent border transition-all duration-300 rounded-2xl flex flex-col" :class="plan.highlighted ? 'border-kura-primary/50 xl:scale-105 z-10' : 'border-kura-border hover:border-kura-border/50'">
+            <div class="relative w-full card-surface transition-all duration-300 flex flex-col" :class="plan.highlighted ? 'border-kura-primary/50 xl:scale-105 z-10 shadow-card' : 'hover:border-kura-primary/20'">
               <div class="p-5 lg:p-7 flex flex-col h-full">
                 <!-- Plan Header (Fixed minimum height to align buttons) -->
                 <div class="flex flex-col grow-0 min-h-[170px] lg:min-h-[180px]">
@@ -192,7 +182,11 @@ const handlePlanAction = () => {
                 </div>
 
                 <!-- CTA Button (Moved up directly under price) -->
-                <button @click="handlePlanAction()" class="w-full px-4 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 mb-6 shrink-0" :class="plan.highlighted ? 'bg-gradient-to-r from-kura-primary to-kura-secondary hover:shadow-glow-primary text-white' : 'border-2 border-kura-primary/50 text-kura-primary hover:bg-kura-primary/10'">
+                <button
+                  @click="handlePlanAction()"
+                  class="w-full px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 mb-6 shrink-0"
+                  :class="plan.highlighted ? 'btn-primary !w-full' : 'btn-secondary !w-full'"
+                >
                   {{ plan.cta }}
                 </button>
 
@@ -218,7 +212,7 @@ const handlePlanAction = () => {
           <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
           
           <div class="space-y-4">
-            <details class="group border border-kura-border rounded-lg p-6 cursor-pointer hover:border-kura-border/70 transition-colors">
+            <details class="group card-surface p-6 cursor-pointer hover:border-kura-primary/20 transition-colors">
               <summary class="flex items-center justify-between font-bold text-lg">
                 <span>Can I switch plans anytime?</span>
                 <span class="text-2xl group-open:rotate-180 transition-transform">+</span>
@@ -226,16 +220,15 @@ const handlePlanAction = () => {
               <p class="mt-4 text-kura-text-secondary">Yes. You can upgrade or downgrade anytime, and your data access policies stay under your control during transitions.</p>
             </details>
 
-            <details class="group border border-kura-border rounded-lg p-6 cursor-pointer hover:border-kura-border/70 transition-colors">
+            <details class="group card-surface p-6 cursor-pointer hover:border-kura-primary/20 transition-colors">
               <summary class="flex items-center justify-between font-bold text-lg">
                 <span>Is my data secure?</span>
                 <span class="text-2xl group-open:rotate-180 transition-transform">+</span>
               </summary>
-              <p class="mt-4 text-kura-text-secondary">Yes. We use client-side encryption and zero-access design, so our systems cannot directly inspect your raw financial records.</p>
+              <p class="mt-4 text-kura-text-secondary">Yes. TrackFi uses zero access encryption and a zero-access design, so our systems cannot directly inspect your raw financial records.</p>
             </details>
           </div>
         </section>
-      </div>
     </main>
   </div>
 </template>

@@ -1,14 +1,13 @@
 <template>
-  <div class="min-h-screen bg-kura-background text-kura-text">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <!-- Header -->
-      <div class="mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-kura-text">Disclaimer</h1>
-        <p class="text-kura-text-secondary text-lg">Last Updated: June 2026</p>
-      </div>
+  <div class="w-full text-kura-text bg-white">
+    <PageHero
+      eyebrow="Legal"
+      title="Disclaimer"
+      description="Last updated: June 2026"
+    />
 
-      <!-- Content -->
-      <div class="prose prose-invert max-w-none space-y-8">
+    <div class="marketing-container max-w-3xl pb-20 md:pb-28">
+      <div class="prose max-w-none space-y-8">
         <!-- 1. Financial Technology App, Not a Bank -->
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Financial Technology App, Not a Bank</h2>
@@ -29,7 +28,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">3. Non-Custodial Nature & Self-Directed Activity</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura Wallet is non-custodial: you control your keys, and Kura Finance LLC does not hold, control, or custody your fiat currency or digital assets, and cannot move funds on your behalf. All trades, swaps, transfers, asset purchases, and card spending are self-directed and executed by you, on-chain or through third-party providers. Blockchain transactions are irreversible and we cannot reverse, freeze, or recover them.
+            Kura Wallet is non-custodial: you control your keys via a Safe smart account on Base, and Kura Finance LLC does not hold, control, or custody your fiat currency or digital assets, and cannot move funds on your behalf. All trades, swaps, bridges, yield deposits, transfers, asset purchases, and card spending are self-directed and executed by you, on-chain or through third-party providers. Blockchain and smart-contract transactions are irreversible and we cannot reverse, freeze, or recover them.
           </p>
         </section>
 
@@ -37,7 +36,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">4. Third-Party Services</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Features rely on independent providers — including Privy, Bridge, MoonPay, Dinari, Gnosis Pay, Plaid, DeBank, and WalletConnect — each subject to its own terms, eligibility, and regional availability. We do not control and are not responsible for their services, and we are not liable for financial impact caused by their outages, delays, or decisions.
+            Features rely on independent providers — including Privy, Bridge, MoonPay, Li.Fi, Morpho, Dinari, Sumsub, Stripe, Plaid, DeBank, CoinGecko, Pimlico, and WalletConnect (Reown) — each subject to its own terms, eligibility, and regional availability. TrackFi exchange connections are read-only; Kura cannot execute trades on connected accounts. We do not control and are not responsible for their services, and we are not liable for financial impact caused by their outages, delays, or decisions.
           </p>
         </section>
 
@@ -49,17 +48,33 @@
           </p>
         </section>
 
-        <!-- 6. Zero-Access Disclosure Limits -->
+        <!-- 6. DeFi Yield & Smart-Contract Risk -->
         <section>
-          <h2 class="text-2xl font-bold text-kura-text mb-4">6. Zero-Access Disclosure Limits</h2>
+          <h2 class="text-2xl font-bold text-kura-text mb-4">6. DeFi Yield & Smart-Contract Risk</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura is operated under a Zero-Access architecture with strict access boundaries and does not maintain universal plaintext capability for sensitive financial content stored in TrackFi. Accordingly, disclosure is limited to data technically accessible within our systems, and we do not sell user financial data.
+            Morpho Earn and other yield features involve third-party DeFi protocols and smart contracts. Yield rates vary, are not guaranteed, and may differ from displayed estimates. Deposits are not bank deposits and are not insured by the FDIC, SIPC, or any government agency. Smart-contract bugs, oracle failures, or protocol governance changes can result in partial or total loss of deposited assets.
           </p>
         </section>
 
-        <!-- 7. No Fiduciary Duty -->
+        <!-- 7. Waitlists & Feature Availability -->
         <section>
-          <h2 class="text-2xl font-bold text-kura-text mb-4">7. No Fiduciary Duty</h2>
+          <h2 class="text-2xl font-bold text-kura-text mb-4">7. Waitlists & Feature Availability</h2>
+          <p class="text-kura-text-secondary leading-relaxed">
+            Joining a waitlist — including for Kura Card — does not guarantee access, timing, or specific benefits. Features described in the app or on this website may change, launch in phases, or be unavailable in your region. Partner eligibility and KYC requirements apply independently to each product.
+          </p>
+        </section>
+
+        <!-- 8. Zero-Access Disclosure Limits -->
+        <section>
+          <h2 class="text-2xl font-bold text-kura-text mb-4">8. Zero-Access Disclosure Limits</h2>
+          <p class="text-kura-text-secondary leading-relaxed">
+            Kura is operated under a Zero-Access architecture with strict access boundaries. TrackFi uses zero access encryption and we do not maintain universal plaintext capability for sensitive financial content stored in TrackFi. Accordingly, disclosure is limited to data technically accessible within our systems, and we do not sell user financial data.
+          </p>
+        </section>
+
+        <!-- 9. No Fiduciary Duty -->
+        <section>
+          <h2 class="text-2xl font-bold text-kura-text mb-4">9. No Fiduciary Duty</h2>
           <p class="text-kura-text-secondary leading-relaxed">
             Your use of Kura does not create a fiduciary, advisory, or principal-agent relationship between you and Kura Finance LLC. You are solely responsible for evaluating the merits and risks associated with any tools, assets, or information provided by our Service.
           </p>

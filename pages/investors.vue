@@ -125,184 +125,161 @@ function noticeClasses(type: SyncNotice['type']) {
 </script>
 
 <template>
-  <div class="w-full text-kura-text">
-    <main class="relative z-10 w-full px-4 sm:px-6 py-16 md:py-24">
-      <div class="max-w-5xl mx-auto">
-        <section class="mb-12 md:mb-16 text-center pt-16 md:pt-20">
-          <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-kura-primary/30 bg-kura-primary/10">
-            <span class="w-2 h-2 rounded-full bg-kura-accent animate-pulse" />
-            <span class="text-sm font-semibold text-kura-primary">Platform Insights</span>
-          </div>
-          <h1 class="text-4xl md:text-5xl font-black mb-6 tracking-tight">
-            <span class="bg-gradient-to-r from-kura-primary to-kura-secondary bg-clip-text text-transparent">Investor Metrics</span>
-          </h1>
-          <p class="text-lg md:text-xl text-kura-text-secondary max-w-2xl mx-auto leading-relaxed">
-            Live revenue, growth, and AUM figures from the Kura platform.
-          </p>
-          <p v-if="periodLabel" class="text-sm text-kura-text-secondary mt-4">
-            Reporting period: {{ periodLabel }}
-          </p>
+  <div class="w-full text-kura-text bg-white">
+    <PageHero
+      eyebrow="Platform Insights"
+      title="Investor Metrics"
+      description="Live revenue, growth, and AUM figures from the Kura platform."
+    >
+      <p v-if="periodLabel" class="text-sm text-kura-ink-subtle mb-6">
+        Reporting period: {{ periodLabel }}
+      </p>
+      <button
+        type="button"
+        :disabled="syncing"
+        class="btn-ghost-light text-sm gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        @click="refreshMetrics"
+      >
+        <svg
+          class="w-4 h-4"
+          :class="syncing ? 'animate-spin' : ''"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+          />
+        </svg>
+        {{ syncing ? 'Syncing…' : 'Refresh data' }}
+      </button>
+    </PageHero>
 
-          <div class="mt-8">
-            <button
-              type="button"
-              :disabled="syncing"
-              class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-kura-primary/40 text-sm font-semibold text-kura-primary hover:bg-kura-primary/10 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              @click="refreshMetrics"
-            >
-              <svg
-                class="w-4 h-4"
-                :class="syncing ? 'animate-spin' : ''"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+    <main class="marketing-container max-w-5xl pb-20 md:pb-28">
+      <div v-if="syncNotices.length" class="space-y-2 mb-8">
+        <p
+          v-for="(notice, index) in syncNotices"
+          :key="index"
+          class="rounded-xl border px-4 py-3 text-sm"
+          :class="noticeClasses(notice.type)"
+        >
+          {{ notice.text }}
+        </p>
+      </div>
+
+      <div
+        v-if="metricsLoading"
+        class="card-surface p-10 text-center text-kura-text-secondary"
+      >
+        Loading platform metrics…
+      </div>
+
+      <div
+        v-else-if="metricsUnavailable"
+        class="rounded-2xl border border-kura-warning/30 bg-kura-warning/5 p-6 text-sm text-kura-text-secondary text-center"
+      >
+        Metrics are temporarily unavailable. Please try again later.
+      </div>
+
+      <template v-else>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div class="card-surface p-5">
+            <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">Net Revenue</p>
+            <p class="text-2xl font-bold">{{ formatUsd(platformSummary?.revenue.totalNetUsd) }}</p>
+            <p class="text-xs text-kura-text-secondary mt-1">
+              Gross {{ formatUsd(platformSummary?.revenue.totalGrossUsd) }} ·
+              Fees {{ formatUsd(platformSummary?.revenue.totalPlatformFeeUsd) }}
+            </p>
+          </div>
+          <div class="card-surface p-5">
+            <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">Revenue Events</p>
+            <p class="text-2xl font-bold">{{ formatCount(platformSummary?.revenue.eventCount) }}</p>
+          </div>
+          <div class="card-surface p-5">
+            <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">Waitlist Signups</p>
+            <p class="text-2xl font-bold">{{ formatCount(platformSummary?.waitlist.totalSignups) }}</p>
+          </div>
+          <div class="card-surface p-5">
+            <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">Active Subscriptions</p>
+            <p class="text-2xl font-bold">{{ formatCount(platformSummary?.subscriptions.activeCount) }}</p>
+          </div>
+          <div class="card-surface p-5">
+            <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">SCA AUM</p>
+            <p class="text-2xl font-bold">{{ formatUsd(platformSummary?.scaAum.totalUsd, 2) }}</p>
+            <p class="text-xs text-kura-text-secondary mt-1">
+              {{ formatCount(platformSummary?.scaAum.walletCount) }} wallets
+            </p>
+          </div>
+          <div class="card-surface p-5">
+            <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">DeBank Scan AUM</p>
+            <p class="text-2xl font-bold">{{ formatUsd(scaSummary?.totalUsd, 2) }}</p>
+            <p class="text-xs text-kura-text-secondary mt-1">
+              Spot {{ formatUsd(scaSummary?.spotUsd, 2) }} · DeFi {{ formatUsd(scaSummary?.defiUsd, 2) }}
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-12">
+          <div v-if="revenueBySource.length" class="card-surface p-5">
+            <h2 class="font-semibold mb-3 text-sm uppercase tracking-widest text-kura-text-secondary">Revenue by Source</h2>
+            <div class="space-y-2">
+              <div
+                v-for="[source, row] in revenueBySource"
+                :key="source"
+                class="flex items-center justify-between text-sm gap-4"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                />
-              </svg>
-              {{ syncing ? 'Syncing…' : 'Refresh data' }}
-            </button>
-          </div>
-        </section>
-
-        <div v-if="syncNotices.length" class="space-y-2 mb-8">
-          <p
-            v-for="(notice, index) in syncNotices"
-            :key="index"
-            class="rounded-xl border px-4 py-3 text-sm"
-            :class="noticeClasses(notice.type)"
-          >
-            {{ notice.text }}
-          </p>
-        </div>
-
-        <div
-          v-if="metricsLoading"
-          class="rounded-2xl border border-kura-border p-10 text-center text-kura-text-secondary"
-        >
-          Loading platform metrics…
-        </div>
-
-        <div
-          v-else-if="metricsUnavailable"
-          class="rounded-2xl border border-kura-warning/30 bg-kura-warning/5 p-6 text-sm text-kura-text-secondary text-center"
-        >
-          Metrics are temporarily unavailable. Please try again later.
-        </div>
-
-        <template v-else>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            <div class="rounded-2xl border border-kura-border bg-gradient-to-br from-white/[0.04] to-transparent p-5">
-              <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">Net Revenue</p>
-              <p class="text-2xl font-black">{{ formatUsd(platformSummary?.revenue.totalNetUsd) }}</p>
-              <p class="text-xs text-kura-text-secondary mt-1">
-                Gross {{ formatUsd(platformSummary?.revenue.totalGrossUsd) }} ·
-                Fees {{ formatUsd(platformSummary?.revenue.totalPlatformFeeUsd) }}
-              </p>
-            </div>
-            <div class="rounded-2xl border border-kura-border bg-gradient-to-br from-white/[0.04] to-transparent p-5">
-              <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">Revenue Events</p>
-              <p class="text-2xl font-black">{{ formatCount(platformSummary?.revenue.eventCount) }}</p>
-            </div>
-            <div class="rounded-2xl border border-kura-border bg-gradient-to-br from-white/[0.04] to-transparent p-5">
-              <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">Waitlist Signups</p>
-              <p class="text-2xl font-black">{{ formatCount(platformSummary?.waitlist.totalSignups) }}</p>
-            </div>
-            <div class="rounded-2xl border border-kura-border bg-gradient-to-br from-white/[0.04] to-transparent p-5">
-              <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">Active Subscriptions</p>
-              <p class="text-2xl font-black">{{ formatCount(platformSummary?.subscriptions.activeCount) }}</p>
-            </div>
-            <div class="rounded-2xl border border-kura-border bg-gradient-to-br from-white/[0.04] to-transparent p-5">
-              <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">SCA AUM</p>
-              <p class="text-2xl font-black">{{ formatUsd(platformSummary?.scaAum.totalUsd, 2) }}</p>
-              <p class="text-xs text-kura-text-secondary mt-1">
-                {{ formatCount(platformSummary?.scaAum.walletCount) }} wallets
-              </p>
-            </div>
-            <div class="rounded-2xl border border-kura-border bg-gradient-to-br from-white/[0.04] to-transparent p-5">
-              <p class="text-xs uppercase tracking-widest text-kura-text-secondary mb-2">DeBank Scan AUM</p>
-              <p class="text-2xl font-black">{{ formatUsd(scaSummary?.totalUsd, 2) }}</p>
-              <p class="text-xs text-kura-text-secondary mt-1">
-                Spot {{ formatUsd(scaSummary?.spotUsd, 2) }} · DeFi {{ formatUsd(scaSummary?.defiUsd, 2) }}
-              </p>
+                <span class="font-medium">{{ source }}</span>
+                <span class="text-kura-text-secondary shrink-0">
+                  {{ formatUsd(row.netUsd) }} · {{ formatCount(row.count) }}
+                </span>
+              </div>
             </div>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-4 mb-12">
-            <div
-              v-if="revenueBySource.length"
-              class="rounded-2xl border border-kura-border p-5"
-            >
-              <h2 class="font-bold mb-3 text-sm uppercase tracking-widest text-kura-text-secondary">Revenue by Source</h2>
+          <div class="space-y-4">
+            <div v-if="waitlistByProduct.length" class="card-surface p-5">
+              <h2 class="font-semibold mb-3 text-sm uppercase tracking-widest text-kura-text-secondary">Waitlist by Product</h2>
               <div class="space-y-2">
                 <div
-                  v-for="[source, row] in revenueBySource"
-                  :key="source"
-                  class="flex items-center justify-between text-sm gap-4"
+                  v-for="[product, count] in waitlistByProduct"
+                  :key="product"
+                  class="flex items-center justify-between text-sm"
                 >
-                  <span class="font-medium">{{ source }}</span>
-                  <span class="text-kura-text-secondary shrink-0">
-                    {{ formatUsd(row.netUsd) }} · {{ formatCount(row.count) }}
-                  </span>
+                  <span>{{ product }}</span>
+                  <span>{{ formatCount(count) }}</span>
                 </div>
               </div>
             </div>
 
-            <div class="space-y-4">
-              <div
-                v-if="waitlistByProduct.length"
-                class="rounded-2xl border border-kura-border p-5"
-              >
-                <h2 class="font-bold mb-3 text-sm uppercase tracking-widest text-kura-text-secondary">Waitlist by Product</h2>
-                <div class="space-y-2">
-                  <div
-                    v-for="[product, count] in waitlistByProduct"
-                    :key="product"
-                    class="flex items-center justify-between text-sm"
-                  >
-                    <span>{{ product }}</span>
-                    <span>{{ formatCount(count) }}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                v-if="subscriptionsByTier.length"
-                class="rounded-2xl border border-kura-border p-5"
-              >
-                <h2 class="font-bold mb-3 text-sm uppercase tracking-widest text-kura-text-secondary">Subscriptions by Tier</h2>
-                <div class="space-y-2">
-                  <div
-                    v-for="[tier, count] in subscriptionsByTier"
-                    :key="tier"
-                    class="flex items-center justify-between text-sm"
-                  >
-                    <span>{{ tier }}</span>
-                    <span>{{ formatCount(count) }}</span>
-                  </div>
+            <div v-if="subscriptionsByTier.length" class="card-surface p-5">
+              <h2 class="font-semibold mb-3 text-sm uppercase tracking-widest text-kura-text-secondary">Subscriptions by Tier</h2>
+              <div class="space-y-2">
+                <div
+                  v-for="[tier, count] in subscriptionsByTier"
+                  :key="tier"
+                  class="flex items-center justify-between text-sm"
+                >
+                  <span>{{ tier }}</span>
+                  <span>{{ formatCount(count) }}</span>
                 </div>
               </div>
             </div>
           </div>
-        </template>
+        </div>
+      </template>
 
-        <section class="rounded-2xl border border-kura-border p-8 text-center">
-          <h2 class="text-2xl font-bold mb-3">Investor Inquiries</h2>
-          <p class="text-kura-text-secondary text-sm mb-6 max-w-xl mx-auto">
-            For data room access or partnership discussions, contact our team.
-          </p>
-          <a
-            href="mailto:hello@kura-finance.com"
-            class="inline-block px-7 py-3 bg-gradient-to-r from-kura-primary to-kura-secondary rounded-lg font-semibold text-white hover:shadow-glow-primary transition-all duration-300"
-          >
-            hello@kura-finance.com
-          </a>
-        </section>
-      </div>
+      <section class="card-surface p-8 text-center bg-kura-surface">
+        <h2 class="text-2xl font-bold mb-3">Investor inquiries</h2>
+        <p class="text-kura-text-secondary text-sm mb-6 max-w-xl mx-auto">
+          For data room access or partnership discussions, contact our team.
+        </p>
+        <a href="mailto:hello@kura-finance.com" class="btn-primary">
+          hello@kura-finance.com
+        </a>
+      </section>
     </main>
   </div>
 </template>

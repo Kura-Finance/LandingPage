@@ -2,9 +2,11 @@
   <header
     class="fixed top-0 w-full z-50 transition-colors duration-300 dropdown-container"
     :class="
-      isScrolled || activeDropdown || isMobileMenuOpen
-        ? 'bg-white border-b border-kura-border shadow-sm'
-        : 'bg-transparent'
+      isDarkNav
+        ? 'bg-transparent border-b border-transparent'
+        : isScrolled || activeDropdown || isMobileMenuOpen
+          ? 'bg-white border-b border-kura-border shadow-sm'
+          : 'bg-white/90 backdrop-blur-md border-b border-kura-border/60'
     "
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +24,8 @@
               class="w-10 h-10"
             />
             <span
-              class="hidden sm:inline font-bold text-xl text-kura-text group-hover:text-kura-primary transition-colors"
+              class="hidden sm:inline font-bold text-xl transition-colors"
+              :class="isDarkNav ? 'text-white group-hover:text-white/80' : 'text-kura-text group-hover:text-kura-primary'"
               >Kura</span
             >
           </NuxtLink>
@@ -36,20 +39,24 @@
           <div class="relative h-full flex items-center group">
             <button
               @click.prevent.stop="toggleDropdown('products')"
-              class="flex items-center gap-1 text-kura-text-secondary hover:text-kura-text hover:bg-kura-background-light rounded-lg px-3 py-2 transition-colors duration-200 text-sm font-medium"
-              :class="{
-                'bg-kura-background-light text-kura-text':
-                  activeDropdown === 'products',
-              }"
+              class="flex items-center gap-1 rounded-lg px-3 py-2 transition-colors duration-200 text-sm font-medium"
+              :class="
+                isDarkNav
+                  ? activeDropdown === 'products'
+                    ? 'bg-white/10 text-white'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                  : activeDropdown === 'products'
+                    ? 'bg-kura-surface text-kura-text'
+                    : 'text-kura-text-secondary hover:text-kura-text hover:bg-kura-surface'
+              "
             >
               Products
               <svg
                 class="w-4 h-4 transition-transform duration-300"
-                :class="
-                  activeDropdown === 'products'
-                    ? 'rotate-180 text-kura-text'
-                    : 'text-kura-text-secondary group-hover:text-kura-text'
-                "
+                :class="[
+                  activeDropdown === 'products' ? 'rotate-180' : '',
+                  isDarkNav ? 'text-white/70' : 'text-kura-text-secondary group-hover:text-kura-text',
+                ]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -68,20 +75,24 @@
           <div class="relative h-full flex items-center group">
             <button
               @click.prevent.stop="toggleDropdown('resources')"
-              class="flex items-center gap-1 text-kura-text-secondary hover:text-kura-text hover:bg-kura-background-light rounded-lg px-3 py-2 transition-colors duration-200 text-sm font-medium"
-              :class="{
-                'bg-kura-background-light text-kura-text':
-                  activeDropdown === 'resources',
-              }"
+              class="flex items-center gap-1 rounded-lg px-3 py-2 transition-colors duration-200 text-sm font-medium"
+              :class="
+                isDarkNav
+                  ? activeDropdown === 'resources'
+                    ? 'bg-white/10 text-white'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                  : activeDropdown === 'resources'
+                    ? 'bg-kura-surface text-kura-text'
+                    : 'text-kura-text-secondary hover:text-kura-text hover:bg-kura-surface'
+              "
             >
               Resources
               <svg
                 class="w-4 h-4 transition-transform duration-300"
-                :class="
-                  activeDropdown === 'resources'
-                    ? 'rotate-180 text-kura-text'
-                    : 'text-kura-text-secondary group-hover:text-kura-text'
-                "
+                :class="[
+                  activeDropdown === 'resources' ? 'rotate-180' : '',
+                  isDarkNav ? 'text-white/70' : 'text-kura-text-secondary group-hover:text-kura-text',
+                ]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -98,13 +109,21 @@
 
           <NuxtLink
             to="/about"
-            class="text-kura-text-secondary hover:text-kura-text hover:bg-kura-background-light rounded-lg px-3 py-2 transition-colors duration-200 text-sm font-medium"
+            class="rounded-lg px-3 py-2 transition-colors duration-200 text-sm font-medium"
+            :class="isDarkNav ? 'text-white/70 hover:text-white hover:bg-white/10' : 'text-kura-text-secondary hover:text-kura-text hover:bg-kura-surface'"
             >About</NuxtLink
           >
           <NuxtLink
             to="/pricing"
-            class="text-kura-text-secondary hover:text-kura-text hover:bg-kura-background-light rounded-lg px-3 py-2 transition-colors duration-200 text-sm font-medium"
+            class="rounded-lg px-3 py-2 transition-colors duration-200 text-sm font-medium"
+            :class="isDarkNav ? 'text-white/70 hover:text-white hover:bg-white/10' : 'text-kura-text-secondary hover:text-kura-text hover:bg-kura-surface'"
             >Pricing</NuxtLink
+          >
+          <NuxtLink
+            to="/business"
+            class="rounded-lg px-3 py-2 transition-colors duration-200 text-sm font-medium hidden lg:inline-flex"
+            :class="isDarkNav ? 'text-white/70 hover:text-white hover:bg-white/10' : 'text-kura-text-secondary hover:text-kura-text hover:bg-kura-surface'"
+            >Business</NuxtLink
           >
         </nav>
 
@@ -115,7 +134,8 @@
           <!-- CTA Button -->
           <NuxtLink
             to="/download"
-            class="px-4 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-kura-primary to-kura-secondary rounded-lg font-semibold text-white hover:shadow-glow-primary transition-all duration-300 text-sm md:text-base"
+            class="px-4 md:px-5 py-2 md:py-2.5 rounded-full font-semibold text-sm md:text-base transition-all duration-200"
+            :class="isDarkNav ? 'bg-white text-kura-ink hover:bg-white/90' : 'btn-primary !py-2 md:!py-2.5 !px-4 md:!px-5'"
           >
             Download App
           </NuxtLink>
@@ -123,7 +143,8 @@
           <!-- Mobile Menu Button -->
           <button
             @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="md:hidden text-kura-text p-2 rounded-lg hover:bg-kura-background-light transition-colors"
+            class="md:hidden p-2 rounded-lg transition-colors"
+            :class="isDarkNav ? 'text-white hover:bg-white/10' : 'text-kura-text hover:bg-kura-surface'"
           >
             <svg
               v-if="!isMobileMenuOpen"
@@ -182,7 +203,7 @@
                 v-for="product in products"
                 :key="product.name"
                 :to="product.to"
-                class="group/item flex flex-col gap-2 p-4 rounded-xl hover:bg-kura-background-light transition-colors border border-transparent hover:border-kura-border"
+                class="group/item flex flex-col gap-2 p-4 rounded-xl hover:bg-kura-surface transition-colors border border-transparent hover:border-kura-border"
                 @click="activeDropdown = null"
               >
                 <div
@@ -205,7 +226,7 @@
                 v-for="resource in resources"
                 :key="resource.name"
                 :to="resource.to"
-                class="group/item flex flex-col gap-2 p-4 rounded-xl hover:bg-kura-background-light transition-colors border border-transparent hover:border-kura-border"
+                class="group/item flex flex-col gap-2 p-4 rounded-xl hover:bg-kura-surface transition-colors border border-transparent hover:border-kura-border"
                 @click="activeDropdown = null"
               >
                 <div
@@ -332,12 +353,18 @@
               class="block py-2 text-kura-text font-medium hover:text-kura-primary transition-colors border-b border-kura-border pb-3"
               >Pricing</NuxtLink
             >
+            <NuxtLink
+              to="/business"
+              @click="isMobileMenuOpen = false"
+              class="block py-2 text-kura-text font-medium hover:text-kura-primary transition-colors border-b border-kura-border pb-3"
+              >Business</NuxtLink
+            >
 
             <div class="pt-4">
               <NuxtLink
                 to="/download"
                 @click="isMobileMenuOpen = false"
-                class="block text-center px-4 py-3 bg-gradient-to-r from-kura-primary to-kura-secondary rounded-lg font-semibold text-white hover:shadow-glow-primary transition-all duration-300"
+                class="block text-center btn-primary w-full"
               >
                 Download App
               </NuxtLink>
@@ -350,34 +377,54 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
+
+const route = useRoute();
 const isScrolled = ref(false);
 const isMobileMenuOpen = ref(false);
 const activeDropdown = ref<string | null>(null);
 const activeMobileSubmenu = ref<string | null>(null);
 
+const isDarkNav = computed(
+  () =>
+    route.path === "/" &&
+    !isScrolled.value &&
+    !activeDropdown.value &&
+    !isMobileMenuOpen.value,
+);
+
 const products = [
   {
     name: 'Kura Wallet',
-    description: 'Non-custodial smart wallet on Base with MPC security, USDC payments, swaps, and WalletConnect.',
+    description: 'Safe smart account on Base with MPC signing, swaps, bridges, and fiat ramps.',
     to: '/kura-wallet',
   },
   {
+    name: 'Discover & Earn',
+    description: 'Trade crypto, US stocks via Dinari, and earn yield with Morpho vaults on Base.',
+    to: '/kura-wallet#discover',
+  },
+  {
     name: 'Kura Card',
-    description: 'Spend USDC anywhere with a non-custodial Visa debit card backed by your smart wallet.',
+    description: 'Spend USDC with a non-custodial Visa debit card — join the waitlist in-app.',
     to: '/kura-card',
   },
   {
     name: 'TrackFi',
-    description: 'Connect banking, brokerage, and on-chain accounts in one passkey-encrypted dashboard.',
+    description: 'Connect banks, CEX accounts, and on-chain wallets in one zero access encrypted dashboard.',
     to: '/trackfi',
+  },
+  {
+    name: 'Kura Business',
+    description: 'Treasury and team wallet flows for startups bridging tradFi and on-chain finance.',
+    to: '/business',
   },
 ];
 
 const resources = [
   {
     name: 'Documentation',
-    description: 'Policies, security docs, and supported countries',
+    description: 'Policies, security docs, and supported regions',
     to: '/docs',
   },
   {

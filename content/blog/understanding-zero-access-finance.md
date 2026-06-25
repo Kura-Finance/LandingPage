@@ -46,7 +46,7 @@ Even under a lawful request, we can only hand over ciphertext — not your finan
 
 ## Kura Card: self-custody spending
 
-Kura Card via Gnosis Pay works differently from a traditional neobank card. Your spending power is backed by crypto assets in your self-custody wallet, not a pooled custodial account.
+Kura Card works differently from a traditional neobank card. Your spending power is backed by crypto assets in your self-custody wallet, not a pooled custodial account.
 
 Kura doesn't hold your card balance. We facilitate the connection between your wallet and the card network — the assets stay yours until you spend them.
 

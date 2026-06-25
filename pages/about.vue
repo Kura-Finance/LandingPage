@@ -111,7 +111,7 @@
             <h3 class="trust-title">Built with Transparency</h3>
             <p class="trust-desc">See how our Zero-Access model minimizes readable data exposure across legal and operational scenarios.</p>
           </div>
-          <NuxtLink to="/compliance" class="whitespace-nowrap px-6 py-2 bg-kura-primary hover:bg-kura-primary-light text-white font-semibold rounded-lg transition-colors">
+          <NuxtLink to="/compliance" class="btn-primary whitespace-nowrap">
             Visit Trust Center
           </NuxtLink>
         </div>
@@ -219,8 +219,8 @@ const milestones = reactive([
 /* Join Section */
 .join-section {
   margin-bottom: 100px;
-  background: rgba(24, 160, 88, 0.05);
-  border: 1px solid rgba(24, 160, 88, 0.2);
+  background: rgba(124, 58, 237, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.15);
   border-radius: 12px;
   padding: 60px;
 }
@@ -258,7 +258,7 @@ const milestones = reactive([
   top: 48px;
   width: 4px;
   height: 80px;
-  background: #18a058;
+  background: #7c3aed;
   border-radius: 2px;
 }
 
@@ -324,7 +324,7 @@ const milestones = reactive([
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, #18a058, transparent);
+  background: linear-gradient(to bottom, #7c3aed, transparent);
 }
 
 .timeline-item {
@@ -338,7 +338,7 @@ const milestones = reactive([
   top: 0;
   width: 12px;
   height: 12px;
-  background: #18a058;
+  background: #7c3aed;
   border-radius: 50%;
   border: 3px solid #ffffff;
 }
@@ -364,7 +364,7 @@ const milestones = reactive([
 
 .timeline-time {
   font-size: 0.9rem;
-  color: #18a058;
+  color: #7c3aed;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -382,8 +382,8 @@ const milestones = reactive([
 
 .trust-card {
   border-radius: 12px;
-  background: rgba(24, 160, 88, 0.05);
-  border: 1px solid rgba(24, 160, 88, 0.2);
+  background: rgba(124, 58, 237, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.15);
   padding: 32px;
 }
 

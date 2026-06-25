@@ -1,55 +1,66 @@
 <template>
-  <section class="relative min-h-screen w-full bg-kura-background overflow-hidden flex items-center justify-center pt-20">
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-      <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-kura-primary/30 bg-kura-primary/10">
-        <span class="w-2 h-2 rounded-full bg-kura-accent animate-pulse" />
-        <span class="text-sm font-semibold text-kura-primary">Wallet · Card · Trading · Tracking</span>
-      </div>
+  <section class="relative bg-kura-ink text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(124,58,237,0.35),transparent)]" />
 
-      <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-tight">
-        <span class="text-kura-text">The</span><br />
-        <span class="bg-gradient-to-r from-kura-primary via-kura-secondary to-kura-accent bg-clip-text text-transparent">
-          Super Financial App
-        </span>
-      </h1>
+    <div class="relative marketing-container pt-28 pb-16 md:pt-36 md:pb-24">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="max-w-xl">
+          <p class="section-label text-kura-primary-light mb-5">Fintech for the on-chain era</p>
 
-      <p class="text-lg md:text-2xl text-kura-text-secondary max-w-3xl mx-auto mb-8 leading-relaxed font-light">
-        Trade crypto, RWA, and US stocks. Spend anywhere with Kura Card. Track your entire financial life — all in one self-custody app, all private by design.
-      </p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight leading-[1.08] mb-6">
+            One app to manage all your finances, from tradFi to crypto.
+          </h1>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-        <NuxtLink to="/download" class="px-8 py-4 bg-gradient-to-r from-kura-primary to-kura-secondary rounded-lg font-bold text-white hover:shadow-glow-primary transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center">
-          Download App
-        </NuxtLink>
-        <NuxtLink to="#features" class="px-8 py-4 border-2 border-kura-primary/50 rounded-lg font-bold text-kura-primary hover:bg-kura-primary/10 hover:border-kura-primary transition-all duration-300 w-full sm:w-auto text-center">
-          Explore Features
-        </NuxtLink>
-      </div>
+          <p class="text-lg text-kura-ink-subtle leading-relaxed mb-8 max-w-lg">
+            Trade crypto and US stocks, earn yield, spend with Kura Card, and track every account — in a self-custody super app built for founders and builders.
+          </p>
 
-      <div class="flex flex-col md:flex-row gap-6 md:gap-10 justify-center items-center text-sm text-kura-text-secondary">
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-kura-accent" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-          </svg>
-          <span>Trade Crypto</span>
+          <div class="flex flex-col sm:flex-row gap-3 mb-10">
+            <NuxtLink to="/download" class="btn-primary">
+              Download App
+            </NuxtLink>
+            <NuxtLink to="#products" class="btn-ghost-light">
+              Explore products
+            </NuxtLink>
+          </div>
+
+          <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-kura-ink-muted">
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-kura-accent shrink-0" />
+              Non-custodial MPC wallet
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-kura-accent shrink-0" />
+              US stocks via Dinari
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-kura-accent shrink-0" />
+              Morpho Earn on Base
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-kura-accent shrink-0" />
+              Passkey-protected zero access encryption
+            </li>
+          </ul>
         </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-kura-accent" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-          </svg>
-          <span>RWA & US Stocks</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-kura-accent" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-          </svg>
-          <span>Kura Card</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-kura-accent" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-          </svg>
-          <span>Track All Finances</span>
+
+        <div class="relative lg:pl-4">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-2 shadow-soft backdrop-blur-sm">
+            <NuxtImg
+              src="/Unified-finance-dashboard.webp"
+              alt="Kura app dashboard showing portfolio, card, and TrackFi"
+              width="1448"
+              height="1086"
+              fetchpriority="high"
+              decoding="async"
+              sizes="(max-width: 1024px) 100vw, 560px"
+              class="w-full rounded-xl"
+            />
+          </div>
+          <div class="absolute -bottom-4 -left-2 sm:left-4 card-surface px-4 py-3 shadow-card hidden sm:flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-kura-accent animate-pulse" />
+            <span class="text-sm font-medium text-kura-text">Self-custody · Zero server access to keys</span>
+          </div>
         </div>
       </div>
     </div>

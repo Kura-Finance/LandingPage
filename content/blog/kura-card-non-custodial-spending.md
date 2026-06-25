@@ -1,6 +1,6 @@
 ---
 title: "Kura Card: Non-Custodial Spending Explained"
-description: "How Gnosis Pay and self-custody work together to let you spend crypto without giving up control."
+description: "How self-custody and card spending work together to let you spend crypto without giving up control."
 date: 2026-06-05
 author: Kura Team
 category: Product
@@ -13,7 +13,7 @@ With most crypto cards, the answer is the card issuer — your assets are custod
 
 ## Self-custody meets Visa
 
-Kura Card is powered by **Gnosis Pay**, a Visa program that connects directly to self-custody wallets rather than custodial exchange balances.
+Kura Card connects your **Kura Wallet** (Safe smart account on Base) to the Visa network — spending is authorized against your on-chain balance rather than a custodial exchange account.
 
 Here's the flow at a high level:
 
@@ -33,7 +33,7 @@ Kura never pools user funds into a company-owned account. Your assets remain in 
 
 ## Getting your card
 
-Card issuance requires identity verification through Gnosis Pay's regulated onboarding flow — standard KYC for any Visa product. Once approved, you manage limits, freeze/unfreeze, and view activity inside the Kura app.
+Card issuance requires identity verification through regulated card partners — standard KYC for any Visa product. Once approved, you manage limits, freeze/unfreeze, and view activity inside the Kura app.
 
 Supported regions and asset types may vary. Check the app for current availability in your country.
 

@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   },
   experimental: {
     payloadExtraction: true,
+    appManifest: false,
   },
   app: {
     head: {
@@ -20,7 +21,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: 'Trade crypto, RWA, and US stocks. Spend with Kura Card. Track all your finances in one self-custody super app.' },
         { name: 'author', content: 'Kura Finance' },
-        { name: 'theme-color', content: '#FAF8F3' },
+        { name: 'theme-color', content: '#111118' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
         { name: 'apple-mobile-web-app-title', content: 'Kura Finance' },
@@ -36,7 +37,10 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'apple-touch-icon', href: '/icon.webp' },
-        { rel: 'mask-icon', href: '/favicon.svg', color: '#8B5CF6' },
+        { rel: 'mask-icon', href: '/favicon.svg', color: '#7C3AED' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap' },
         { rel: 'sitemap', href: '/sitemap.xml', type: 'application/xml' },
         { rel: 'alternate', type: 'application/rss+xml', title: 'Kura Blog RSS', href: '/feed.xml' },
       ],
@@ -53,13 +57,17 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    preset: 'cloudflare_pages',
     prerender: {
       crawlLinks: true,
       routes: ['/sitemap.xml', '/feed.xml'],
       autoSubfolderIndex: false,
     },
     compressPublicAssets: true,
+  },
+  $production: {
+    nitro: {
+      preset: 'cloudflare_pages',
+    },
   },
   routeRules: {
     '/': { prerender: true },
@@ -76,10 +84,10 @@ export default defineNuxtConfig({
     '/feed.xml': { prerender: true },
     '/sitemap.xml': { prerender: true },
     '/docs/stock-countries': { prerender: true },
-    '/docs/card-countries': { prerender: true },
     '/docs/on-off-ramp-countries': { prerender: true },
+    '/docs/card-countries': { redirect: { to: '/kura-card', statusCode: 301 } },
     '/resources/stock-countries': { redirect: { to: '/docs/stock-countries', statusCode: 301 } },
-    '/resources/card-countries': { redirect: { to: '/docs/card-countries', statusCode: 301 } },
+    '/resources/card-countries': { redirect: { to: '/kura-card', statusCode: 301 } },
     '/resources/on-off-ramp-countries': { redirect: { to: '/docs/on-off-ramp-countries', statusCode: 301 } },
     '/community': { prerender: true },
     '/business': { prerender: true },

@@ -1,32 +1,42 @@
 <template>
-  <div class="text-white min-h-screen flex items-center justify-center px-4">
-    <div class="max-w-4xl mx-auto text-center space-y-8">
-      <div class="space-y-4">
-        <div class="inline-block">
-          <span class="text-7xl md:text-8xl">👥</span>
+  <div class="w-full text-kura-text bg-white">
+    <PageHero
+      eyebrow="Community"
+      title="Coming soon"
+      description="We're building a community hub for Kura users and builders. Follow the blog for product updates in the meantime."
+      :tags="['Discord', 'Events', 'Builders']"
+    />
+
+    <main class="marketing-container max-w-xl pb-20 md:pb-28 text-center">
+      <div class="card-surface p-8 md:p-10 space-y-6">
+        <p class="text-sm text-kura-text-secondary leading-relaxed">
+          Want to connect now? Follow us on X or reach out at hello@kura-finance.com.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="https://x.com/kurafinance?s=21"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary text-sm"
+          >
+            Follow on X
+          </a>
+          <NuxtLink to="/blog" class="btn-primary text-sm">Read the blog</NuxtLink>
         </div>
-        <h1 class="text-5xl md:text-6xl font-bold">Community</h1>
-        <p class="text-2xl text-gray-400">Coming Soon</p>
       </div>
-      <p class="text-lg text-gray-500 max-w-2xl mx-auto">
-        We're building an amazing community platform. Join us soon!
-      </p>
-      <NuxtLink to="/" class="inline-block px-8 py-4 bg-gradient-to-r from-kura-primary to-kura-secondary rounded-lg font-semibold text-white hover:shadow-glow-primary transition-all duration-300">
-        Back Home
-      </NuxtLink>
-    </div>
+    </main>
   </div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  layout: 'default'
-});
+  layout: 'default',
+})
 
 usePageSeo({
   title: 'Community',
   description: 'The Kura Finance community hub is coming soon. Follow our blog for product updates in the meantime.',
   path: '/community',
   noindex: true,
-});
+})
 </script>
