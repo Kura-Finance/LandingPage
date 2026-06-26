@@ -7,7 +7,7 @@ export const SITE = {
     'Trade crypto, RWA, and US stocks. Spend with Kura Card. Track all your finances in one self-custody super app.',
   defaultKeywords:
     'super financial app, crypto trading, RWA, US stocks, Kura Card, TrackFi, self-custody wallet, Kura Wallet',
-  defaultOgImage: '/Unified-finance-dashboard.webp',
+  defaultOgImage: '/og.jpg',
 } as const
 
 export function absoluteUrl(path: string) {

@@ -28,10 +28,11 @@ export default defineNuxtConfig({
         { property: 'og:site_name', content: 'Kura Finance' },
         { property: 'og:locale', content: 'en_US' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: 'https://kura-finance.com/Unified-finance-dashboard.webp' },
+        { property: 'og:image', content: 'https://kura-finance.com/og.jpg' },
+        { property: 'og:image:type', content: 'image/jpeg' },
         { property: 'og:image:alt', content: 'Kura Finance — The Super Financial App' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:image', content: 'https://kura-finance.com/Unified-finance-dashboard.webp' },
+        { name: 'twitter:image', content: 'https://kura-finance.com/og.jpg' },
         { name: 'robots', content: 'index, follow' },
       ],
       link: [
@@ -99,6 +100,7 @@ export default defineNuxtConfig({
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/icon.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/favicon.svg': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/og.jpg': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/Unified-finance-dashboard.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
   },
   tailwindcss: {

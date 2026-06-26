@@ -43,6 +43,7 @@ export function usePageSeo(options: PageSeoOptions) {
     ogSiteName: SITE.name,
     ogLocale: SITE.locale,
     ogImage: () => image.value,
+    ogImageType: 'image/jpeg',
     ogImageAlt: () => `${SITE.name} — ${SITE.tagline}`,
     twitterCard: 'summary_large_image',
     twitterTitle: () => fullTitle.value,
