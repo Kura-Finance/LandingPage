@@ -121,8 +121,6 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
-
 usePageSeo({
   title: 'About',
   description: 'Kura Finance builds the Super Financial App — self-custody wallet, Visa card, and encrypted portfolio tracking in one place.',
@@ -130,14 +128,32 @@ usePageSeo({
   keywords: 'about Kura Finance, super financial app, self-custody, zero-access architecture',
 });
 
-const milestones = reactive([
+const milestones = [
   {
     time: 'Phase 1: Privacy Foundation',
-    title: 'Zero-Access Financial Dashboard',
-    content: 'We launched the Kura Dashboard with a strict privacy baseline: encrypt early, minimize visibility, and keep readable sensitive data outside operator reach.',
-    type: 'info'
-  }
-])
+    title: 'TrackFi',
+    content:
+      'We started with encrypted portfolio tracking—banking, investments, and digital assets in one dashboard, with zero-access encryption so readable data stays off our servers.',
+  },
+  {
+    time: 'Phase 2: Unified Account',
+    title: 'One place for your money',
+    content:
+      'Kura became a single financial account: add money, send globally, and see your balance and history from a calm, bank-like home screen.',
+  },
+  {
+    time: 'Phase 3: Grow & Access',
+    title: 'Invest, earn, and borrow',
+    content:
+      'US stocks, transparent yield, and on-demand liquidity—Invest, Earn, and Borrow in one app, powered by regulated partners and clear terms.',
+  },
+  {
+    time: 'Phase 4: Spend',
+    title: 'The Kura Card',
+    content:
+      'Spendable balance meets a modern card experience: virtual card today, with a physical Kura Card waitlist for cashback and fee-free international spend.',
+  },
+]
 </script>
 
 <style scoped>

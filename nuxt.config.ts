@@ -136,6 +136,7 @@ export default defineNuxtConfig({
     '/icon.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/favicon.svg': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/og.jpg': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/screenshot.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/Unified-finance-dashboard.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
   },
   tailwindcss: {

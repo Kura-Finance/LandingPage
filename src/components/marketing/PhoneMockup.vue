@@ -27,8 +27,8 @@ const props = withDefaults(
     size?: 'default' | 'large'
   }>(),
   {
-    screenshot: '/Unified-finance-dashboard.webp',
-    alt: 'Kura app showing portfolio and financial dashboard',
+    screenshot: '/screenshot.webp',
+    alt: 'Kura app home screen showing balance, spendable card, and recent activity',
     size: 'default',
   },
 )
