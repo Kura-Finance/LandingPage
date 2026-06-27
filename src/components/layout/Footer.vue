@@ -1,10 +1,14 @@
+<script setup lang="ts">
+import { brandIconUrl } from '~/utils/brand'
+</script>
+
 <template>
   <footer class="relative z-20 bg-kura-ink text-white border-t border-kura-border-dark">
     <div class="marketing-container py-12 md:py-16">
       <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10 mb-8 md:mb-12">
         <div class="space-y-4 col-span-1 md:col-span-2">
           <h3 class="text-xl font-bold flex items-center gap-2">
-            <img src="/icon.webp" alt="Kura Logo" width="32" height="32" loading="lazy" decoding="async" class="w-8 h-8" />
+            <img :src="brandIconUrl" alt="Kura Logo" width="32" height="32" loading="lazy" decoding="async" class="w-8 h-8" />
             Kura
           </h3>
           <p class="text-sm text-kura-ink-subtle leading-relaxed max-w-sm">
@@ -29,9 +33,10 @@
         <div class="space-y-4">
           <h4 class="font-semibold text-sm uppercase tracking-widest text-kura-ink-muted">Product</h4>
           <ul class="space-y-2">
-            <li><NuxtLink to="/kura-wallet" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Account</NuxtLink></li>
+            <li><NuxtLink to="/account" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Account</NuxtLink></li>
             <li><NuxtLink to="/kura-card" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Kura Card</NuxtLink></li>
             <li><NuxtLink to="/trackfi" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">TrackFi</NuxtLink></li>
+            <li><NuxtLink to="/compare" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Compare</NuxtLink></li>
             <li><NuxtLink to="/pricing" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Pricing</NuxtLink></li>
           </ul>
         </div>
@@ -41,7 +46,7 @@
           <ul class="space-y-2">
             <li><NuxtLink to="/investors" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Investors</NuxtLink></li>
             <li><NuxtLink to="/about" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">About</NuxtLink></li>
-            <li><a href="mailto:hello@kura-finance.com" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Contact</a></li>
+            <li><NuxtLink to="/contact" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Contact</NuxtLink></li>
             <li><NuxtLink to="/blog" class="text-sm text-kura-ink-subtle hover:text-white transition-colors">Blog</NuxtLink></li>
           </ul>
         </div>

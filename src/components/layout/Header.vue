@@ -12,7 +12,7 @@
         <div class="flex-shrink-0 flex items-center">
           <NuxtLink to="/" class="flex items-center gap-2.5 group w-fit" @click="closeAll">
             <img
-              src="/icon.webp"
+              :src="brandIconUrl"
               alt="Kura Logo"
               width="32"
               height="32"
@@ -84,12 +84,34 @@
             </button>
           </div>
 
-          <NuxtLink
-            to="/about"
-            class="px-3 py-2 text-sm transition-colors"
-            :class="isMenuDark ? 'text-white/60 hover:text-white' : 'text-kura-text-secondary hover:text-kura-primary'"
-            @click="closeAll"
-          >About</NuxtLink>
+          <div class="relative h-full flex items-center">
+            <button
+              type="button"
+              @click.prevent.stop="toggleDropdown('about')"
+              class="flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm transition-colors"
+              :class="
+                activeDropdown === 'about'
+                  ? isMenuDark
+                    ? 'bg-kura-primary/25 text-white'
+                    : 'bg-kura-primary/10 text-kura-primary'
+                  : isMenuDark
+                    ? 'text-white/60 hover:text-white'
+                    : 'text-kura-text-secondary hover:text-kura-primary'
+              "
+            >
+              About
+              <svg
+                class="w-3.5 h-3.5 transition-transform duration-200 opacity-60"
+                :class="activeDropdown === 'about' ? 'rotate-180' : ''"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
           <NuxtLink
             to="/pricing"
             class="px-3 py-2 text-sm transition-colors"
@@ -134,7 +156,12 @@
       >
         <div
           v-show="activeDropdown && !isMobileMenuOpen"
-          class="hidden md:block absolute top-full left-0 w-full bg-kura-ink border-t border-white/8 overflow-hidden"
+          class="hidden md:block absolute top-full left-0 w-full overflow-hidden border-t"
+          :class="
+            activeDropdown === 'products'
+              ? 'bg-kura-ink border-white/8'
+              : 'bg-kura-background border-kura-border shadow-sm'
+          "
         >
           <div class="marketing-container py-0">
             <ProductsMegaMenu
@@ -142,25 +169,15 @@
               @close="activeDropdown = null"
             />
 
-            <div
+            <ResourcesMegaMenu
               v-if="activeDropdown === 'resources'"
-              class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/8 border-b border-white/8"
-            >
-              <NuxtLink
-                v-for="resource in resources"
-                :key="resource.name"
-                :to="resource.to"
-                class="group/item flex flex-col gap-1.5 p-6 lg:p-8 bg-kura-ink hover:bg-white/[0.03] transition-colors"
-                @click="activeDropdown = null"
-              >
-                <div class="text-[15px] font-medium text-white group-hover/item:text-kura-primary-light transition-colors">
-                  {{ resource.name }}
-                </div>
-                <div class="text-sm text-white/45 line-clamp-2 leading-relaxed">
-                  {{ resource.description }}
-                </div>
-              </NuxtLink>
-            </div>
+              @close="activeDropdown = null"
+            />
+
+            <AboutMegaMenu
+              v-if="activeDropdown === 'about'"
+              @close="activeDropdown = null"
+            />
           </div>
         </div>
       </transition>
@@ -229,25 +246,80 @@
                 </svg>
               </button>
               <transition name="slide-down">
-                <div v-if="activeMobileSubmenu === 'resources'" class="pl-4 space-y-2 mt-2">
+                <div v-if="activeMobileSubmenu === 'resources'" class="pl-2 mt-3 space-y-4">
+                  <div v-for="column in mobileResourceColumns" :key="column.title">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest text-kura-primary mb-2">
+                      {{ column.title }}
+                    </p>
+                    <div class="pl-2 space-y-1">
+                      <NuxtLink
+                        v-for="link in column.links"
+                        :key="link.name"
+                        :to="link.to"
+                        class="block py-1.5 text-sm text-kura-text-secondary hover:text-kura-primary transition-colors"
+                        @click="closeMobile"
+                      >
+                        {{ link.name }}
+                      </NuxtLink>
+                    </div>
+                  </div>
+                </div>
+              </transition>
+            </div>
+
+            <div class="border-b border-kura-border pb-3">
+              <button
+                type="button"
+                class="w-full flex items-center justify-between py-2 text-kura-text font-medium"
+                @click="toggleMobileSubmenu('about')"
+              >
+                <span>About</span>
+                <svg
+                  class="w-5 h-5 transition-transform duration-300"
+                  :class="activeMobileSubmenu === 'about' ? 'rotate-180' : ''"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <transition name="slide-down">
+                <div v-if="activeMobileSubmenu === 'about'" class="pl-2 mt-3 space-y-4">
                   <NuxtLink
-                    v-for="resource in resources"
-                    :key="resource.name"
-                    :to="resource.to"
-                    class="block py-2 text-sm text-kura-text-secondary hover:text-kura-primary transition-colors"
+                    to="/about"
+                    class="block py-1.5 text-sm font-medium text-kura-text hover:text-kura-primary transition-colors"
                     @click="closeMobile"
                   >
-                    {{ resource.name }}
+                    Our story
+                  </NuxtLink>
+                  <div v-for="column in mobileAboutColumns" :key="column.label">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest text-kura-primary mb-2">
+                      {{ column.label }}
+                    </p>
+                    <div class="pl-2 space-y-1">
+                      <NuxtLink
+                        v-for="link in column.links"
+                        :key="link.name"
+                        :to="link.to"
+                        class="block py-1.5 text-sm text-kura-text-secondary hover:text-kura-primary transition-colors"
+                        @click="closeMobile"
+                      >
+                        {{ link.name }}
+                      </NuxtLink>
+                    </div>
+                  </div>
+                  <NuxtLink
+                    to="/contact"
+                    class="block py-1.5 text-sm text-kura-text-secondary hover:text-kura-primary transition-colors"
+                    @click="closeMobile"
+                  >
+                    Contact us
                   </NuxtLink>
                 </div>
               </transition>
             </div>
 
-            <NuxtLink
-              to="/about"
-              class="block py-2 text-kura-text font-medium border-b border-kura-border pb-3"
-              @click="closeMobile"
-            >About</NuxtLink>
             <NuxtLink
               to="/pricing"
               class="block py-2 text-kura-text font-medium border-b border-kura-border pb-3"
@@ -268,49 +340,95 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { brandIconUrl } from '~/utils/brand'
 
 const isMobileMenuOpen = ref(false)
 const activeDropdown = ref<string | null>(null)
 const activeMobileSubmenu = ref<string | null>(null)
 
 const isMenuDark = computed(
-  () => !!activeDropdown.value && !isMobileMenuOpen.value,
+  () => activeDropdown.value === 'products' && !isMobileMenuOpen.value,
 )
 
 const mobileProductCategories = [
   {
     title: 'Cash & Transfers',
     links: [
-      { name: 'Account', to: '/kura-wallet' },
-      { name: 'Global Transfers', to: '/kura-wallet' },
+      { name: 'Account', to: '/account' },
+      { name: 'Global Transfers', to: '/global-transfers' },
+      { name: 'Multi-Currency', to: '/multi-currency' },
     ],
   },
   {
     title: 'Cards & Spending',
     links: [
       { name: 'Kura Card', to: '/kura-card' },
+      { name: 'Join Waitlist', to: '/card-waitlist' },
     ],
   },
   {
     title: 'Investing & Earn',
     links: [
-      { name: 'Invest', to: '/kura-wallet#discover' },
-      { name: 'Earn', to: '/kura-wallet#earn' },
+      { name: 'Invest', to: '/invest' },
+      { name: 'US Stocks', to: '/us-stocks' },
+      { name: 'Earn', to: '/earn' },
+      { name: 'Borrow', to: '/borrow' },
     ],
   },
   {
     title: 'Portfolio',
     links: [
       { name: 'TrackFi', to: '/trackfi' },
+      { name: 'Connected Accounts', to: '/connected-accounts' },
+      { name: 'Net Worth', to: '/net-worth' },
     ],
   },
 ]
 
-const resources = [
-  { name: 'Documentation', description: 'Policies, security docs, and supported regions', to: '/docs' },
-  { name: 'Blog', description: 'Latest news and insights', to: '/blog' },
-  { name: 'Help Center', description: 'Support and FAQs', to: '/help' },
-  { name: 'Community', description: 'Join our community', to: '/community' },
+const mobileResourceColumns = [
+  {
+    title: 'Blog',
+    links: [
+      { name: 'All posts', to: '/blog' },
+      { name: 'Product updates', to: '/blog/product-updates' },
+      { name: 'Company news', to: '/blog/company-news' },
+    ],
+  },
+  {
+    title: 'Documentation',
+    links: [
+      { name: 'Documentation center', to: '/docs' },
+      { name: 'Stock countries', to: '/docs/stock-countries' },
+      { name: 'On & off-ramp countries', to: '/docs/on-off-ramp-countries' },
+      { name: 'Compliance', to: '/compliance' },
+      { name: 'Privacy policy', to: '/privacy' },
+    ],
+  },
+  {
+    title: 'Support',
+    links: [
+      { name: 'Help center', to: '/help' },
+      { name: 'Community', to: '/community' },
+      { name: 'Contact us', to: '/contact' },
+      { name: 'Investors', to: '/investors' },
+    ],
+  },
+]
+
+const mobileAboutColumns = [
+  {
+    label: 'Connect',
+    links: [
+      { name: 'Community', to: '/community' },
+      { name: 'Blog', to: '/blog' },
+    ],
+  },
+  {
+    label: 'Company',
+    links: [
+      { name: 'Compliance', to: '/compliance' },
+    ],
+  },
 ]
 
 function toggleDropdown(menu: string) {
