@@ -31,7 +31,7 @@
     "vue": "^3.4.0"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
+    "@nuxt/devtools": "^2.7.0",
     "@types/node": "^22",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.4.32",
@@ -44,6 +44,6 @@
     "vite": "7.3.2"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.22.2"
   }
 }
