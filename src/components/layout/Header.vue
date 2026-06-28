@@ -131,9 +131,12 @@
 
           <button
             type="button"
-            @click="isMobileMenuOpen = !isMobileMenuOpen"
+            @click.stop="toggleMobileMenu"
             class="md:hidden p-2 rounded-lg transition-colors"
             :class="isMenuDark ? 'text-white hover:bg-white/10' : 'text-kura-text hover:bg-kura-surface'"
+            :aria-expanded="isMobileMenuOpen"
+            aria-controls="mobile-menu"
+            aria-label="Toggle menu"
           >
             <svg v-if="!isMobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -181,19 +184,21 @@
           </div>
         </div>
       </transition>
+    </div>
 
-      <!-- Mobile Menu -->
+    <Teleport to="body">
       <transition name="slide-down">
         <div
           v-if="isMobileMenuOpen"
-          class="md:hidden fixed inset-0 top-16 bg-kura-background overflow-y-auto z-40"
+          id="mobile-menu"
+          class="mobile-menu-panel md:hidden fixed inset-0 top-16 bg-kura-background overflow-y-auto z-[49]"
         >
-          <nav class="px-4 py-4 space-y-3">
+          <nav class="marketing-container px-5 sm:px-8 py-4 space-y-3">
             <div class="border-b border-kura-border pb-3">
               <button
                 type="button"
                 class="w-full flex items-center justify-between py-2 text-kura-text font-medium"
-                @click="toggleMobileSubmenu('products')"
+                @click.stop="toggleMobileSubmenu('products')"
               >
                 <span>Products</span>
                 <svg
@@ -232,7 +237,7 @@
               <button
                 type="button"
                 class="w-full flex items-center justify-between py-2 text-kura-text font-medium"
-                @click="toggleMobileSubmenu('resources')"
+                @click.stop="toggleMobileSubmenu('resources')"
               >
                 <span>Resources</span>
                 <svg
@@ -271,7 +276,7 @@
               <button
                 type="button"
                 class="w-full flex items-center justify-between py-2 text-kura-text font-medium"
-                @click="toggleMobileSubmenu('about')"
+                @click.stop="toggleMobileSubmenu('about')"
               >
                 <span>About</span>
                 <svg
@@ -334,12 +339,12 @@
           </nav>
         </div>
       </transition>
-    </div>
+    </Teleport>
   </header>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { brandIconUrl } from '~/utils/brand'
 
 const isMobileMenuOpen = ref(false)
@@ -431,6 +436,13 @@ const mobileAboutColumns = [
   },
 ]
 
+function toggleMobileMenu() {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+  if (!isMobileMenuOpen.value) {
+    activeMobileSubmenu.value = null
+  }
+}
+
 function toggleDropdown(menu: string) {
   activeDropdown.value = activeDropdown.value === menu ? null : menu
 }
@@ -443,17 +455,31 @@ function closeAll() {
   activeDropdown.value = null
   isMobileMenuOpen.value = false
   activeMobileSubmenu.value = null
+  unlockBodyScroll()
 }
 
 function closeMobile() {
   isMobileMenuOpen.value = false
   activeMobileSubmenu.value = null
+  unlockBodyScroll()
+}
+
+function lockBodyScroll() {
+  if (import.meta.client) document.body.style.overflow = 'hidden'
+}
+
+function unlockBodyScroll() {
+  if (import.meta.client) document.body.style.overflow = ''
 }
 
 function closeDropdowns(e: Event) {
   const target = e.target as HTMLElement
-  if (!target.closest('.dropdown-container')) {
-    activeDropdown.value = null
+  if (target.closest('.dropdown-container') || target.closest('.mobile-menu-panel')) {
+    return
+  }
+  activeDropdown.value = null
+  if (isMobileMenuOpen.value) {
+    closeMobile()
   }
 }
 
@@ -463,6 +489,12 @@ onMounted(() => {
 
 onUnmounted(() => {
   document.removeEventListener('click', closeDropdowns)
+  unlockBodyScroll()
+})
+
+watch(isMobileMenuOpen, (open) => {
+  if (open) lockBodyScroll()
+  else unlockBodyScroll()
 })
 </script>
 

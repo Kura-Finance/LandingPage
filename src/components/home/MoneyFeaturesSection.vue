@@ -8,11 +8,12 @@
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-px bg-kura-border border border-kura-border rounded-xl overflow-hidden">
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-6 gap-px bg-kura-border border border-kura-border rounded-xl overflow-hidden">
         <article
-          v-for="feature in features"
+          v-for="(feature, index) in features"
           :key="feature.title"
           class="feature-card bg-white p-10 md:p-12"
+          :class="featureGridClass(index, features.length)"
         >
           <p class="section-label mb-8">{{ feature.number }}</p>
           <h3 class="font-display text-2xl md:text-[1.75rem] text-kura-text mb-4 font-normal tracking-[-0.02em]">
@@ -55,4 +56,10 @@ const features = [
     description: 'Use your balance like a modern financial account.',
   },
 ]
+
+function featureGridClass(index: number, total: number) {
+  if (index < 3) return 'xl:col-span-2'
+  if (index === total - 1) return 'sm:col-span-2 xl:col-span-3'
+  return 'xl:col-span-3'
+}
 </script>

@@ -1,20 +1,18 @@
 <template>
   <div class="phone-mockup mx-auto shadow-device" :class="sizeClass">
     <div class="phone-mockup__frame">
-      <div class="phone-mockup__screen">
-        <slot>
-          <NuxtImg
-            :src="screenshot"
-            :alt="alt"
-            width="1170"
-            height="2532"
-            fetchpriority="high"
-            decoding="async"
-            sizes="(max-width: 768px) 280px, 320px"
-            class="w-full h-full object-cover object-top"
-          />
-        </slot>
-      </div>
+      <slot>
+        <NuxtImg
+          :src="screenshot"
+          :alt="alt"
+          width="1206"
+          height="2622"
+          fetchpriority="high"
+          decoding="async"
+          sizes="(max-width: 768px) 280px, 320px"
+          class="phone-mockup__img"
+        />
+      </slot>
     </div>
   </div>
 </template>
@@ -42,16 +40,32 @@ const sizeClass = computed(() =>
 
 <style scoped>
 .phone-mockup__frame {
-  padding: 3px;
-  border-radius: 36px;
-  background: linear-gradient(145deg, #e1e4ec, #d4d8e4);
+  --phone-radius: 36px;
+
+  position: relative;
+  border-radius: var(--phone-radius);
+  overflow: hidden;
+  isolation: isolate;
+  aspect-ratio: 1206 / 2622;
+  line-height: 0;
+  background: #e1e4ec;
+  box-shadow:
+    inset 0 0 0 3px #d4d8e4,
+    inset 0 0 0 4px rgba(225, 228, 236, 0.9);
 }
 
-.phone-mockup__screen {
-  overflow: hidden;
-  border-radius: 34px;
-  aspect-ratio: 9 / 19.5;
-  background: #f8f9fc;
-  border: 1px solid rgba(26, 26, 26, 0.06);
+.phone-mockup__frame :deep(picture) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.phone-mockup__frame :deep(img),
+.phone-mockup__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 </style>
