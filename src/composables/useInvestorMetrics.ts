@@ -2,13 +2,13 @@ import type {
   ApiResponse,
   BackfillResult,
   PlatformSummaryData,
-  ScanResult,
-  ScaAnalyticsSummaryData,
+  PrivyAnalyticsSummaryData,
+  PrivySyncResult,
 } from '~/types/platform-insights'
 import {
   getBackfillSuccessMessage,
   getLazyUpdateMessage,
-  getScanSuccessMessage,
+  getPrivySyncSuccessMessage,
   isLazySkipped,
 } from '~/utils/platform-sync'
 import { formatDate } from '~/utils/kura-api'
@@ -22,30 +22,46 @@ export function useInvestorMetrics() {
     key: 'platform-insights-summary',
   })
 
-  const { data: scaRes, status: scaStatus, refresh: refreshSca } = useFetch<
-    ApiResponse<ScaAnalyticsSummaryData>
-  >('/api/sca-analytics/summary', {
-    key: 'sca-analytics-summary',
+  const { data: privyRes, status: privyStatus, refresh: refreshPrivy } = useFetch<
+    ApiResponse<PrivyAnalyticsSummaryData>
+  >('/api/privy-analytics/summary', {
+    key: 'privy-analytics-summary',
   })
 
   const platformSummary = computed(() =>
     platformRes.value?.success ? platformRes.value.data : null,
   )
-  const scaSummary = computed(() => (scaRes.value?.success ? scaRes.value.data : null))
+  const privySummary = computed(() => (privyRes.value?.success ? privyRes.value.data : null))
+
+  const activeUsers = computed(
+    () => platformSummary.value?.activeUsers ?? privySummary.value ?? null,
+  )
 
   const metricsLoading = computed(
-    () => platformStatus.value === 'pending' || scaStatus.value === 'pending',
+    () => platformStatus.value === 'pending' || privyStatus.value === 'pending',
   )
   const metricsUnavailable = computed(
     () =>
       !metricsLoading.value &&
-      (!platformRes.value?.success || !scaRes.value?.success),
+      (!platformRes.value?.success || !privyRes.value?.success),
   )
 
   const periodLabel = computed(() => {
     const period = platformSummary.value?.period
-    if (!period) return null
-    return `${formatDate(period.from)} → ${formatDate(period.to)}`
+    if (period) {
+      return `${formatDate(period.from)} → ${formatDate(period.to)}`
+    }
+    const users = activeUsers.value
+    if (users?.periodFrom && users?.periodTo) {
+      return `${formatDate(users.periodFrom)} → ${formatDate(users.periodTo)}`
+    }
+    return null
+  })
+
+  const activeUserRate = computed(() => {
+    const users = activeUsers.value
+    if (!users?.totalUsers) return null
+    return users.activeUsers / users.totalUsers
   })
 
   const revenueBySource = computed(() => {
@@ -112,18 +128,18 @@ export function useInvestorMetrics() {
           : getBackfillSuccessMessage(backfillRes.data),
       })
 
-      const scanRes = await postSync<ScanResult>('/api/sca-analytics/scan')
-      if (!scanRes.success) {
-        throw new Error(scanRes.error.message)
+      const privySyncRes = await postSync<PrivySyncResult>('/api/privy-analytics/sync')
+      if (!privySyncRes.success) {
+        throw new Error(privySyncRes.error.message)
       }
       syncNotices.value.push({
-        type: isLazySkipped(scanRes.data) ? 'info' : 'success',
-        text: isLazySkipped(scanRes.data)
-          ? getLazyUpdateMessage(scanRes.data)
-          : getScanSuccessMessage(scanRes.data),
+        type: isLazySkipped(privySyncRes.data) ? 'info' : 'success',
+        text: isLazySkipped(privySyncRes.data)
+          ? getLazyUpdateMessage(privySyncRes.data)
+          : getPrivySyncSuccessMessage(privySyncRes.data),
       })
 
-      await Promise.all([refreshPlatform(), refreshSca()])
+      await Promise.all([refreshPlatform(), refreshPrivy()])
     } catch {
       syncNotices.value = [{ type: 'error', text: 'Sync failed. Please try again later.' }]
     } finally {
@@ -133,7 +149,9 @@ export function useInvestorMetrics() {
 
   return {
     platformSummary,
-    scaSummary,
+    privySummary,
+    activeUsers,
+    activeUserRate,
     metricsLoading,
     metricsUnavailable,
     periodLabel,

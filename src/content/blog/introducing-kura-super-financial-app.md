@@ -41,6 +41,6 @@ Kura's architecture is different:
 
 ## Get started
 
-Kura is available on iOS (TestFlight) and Android (Google Play). [Download the app](/download) and explore Basic for free — upgrade to Pro or Ultimate when you're ready for advanced features.
+Kura is available on the [App Store](https://apps.apple.com/us/app/kura-modern-usd-finance/id6779338000) and [Google Play](https://play.google.com/store/apps/details?id=com.kurafinance.app&hl=en). [Download the app](/download) and explore Basic for free — upgrade to Pro or Ultimate when you're ready for advanced features.
 
 We're just getting started. Follow the [blog](/blog) for product updates, security deep-dives, and guides on making the most of your Super Financial App.

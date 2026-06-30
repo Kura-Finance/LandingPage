@@ -8,7 +8,6 @@ export type PlatformRecordSource =
   | 'bridge_liquidation_out'
   | 'card'
   | 'waitlist'
-  | 'debank'
   | 'dinari'
 
 export interface ApiError {
@@ -62,6 +61,14 @@ export interface RevenueSourceBreakdown {
   count: number
 }
 
+export interface ActiveUsersSummary {
+  totalUsers: number
+  activeUsers: number
+  periodFrom: string
+  periodTo: string
+  lastSyncedAt: string | null
+}
+
 export interface PlatformSummaryData {
   period: { from: string; to: string }
   revenue: {
@@ -79,46 +86,14 @@ export interface PlatformSummaryData {
     activeCount: number
     byTier: Record<string, number>
   }
-  scaAum: {
-    totalUsd: number
-    walletCount: number
-    lastSnapshotAt: string | null
-    lastScanAt: string | null
-  }
+  activeUsers: ActiveUsersSummary
 }
 
-export interface ScaScanSummary {
-  id: string
-  status: string
-  walletsScanned: number
-  walletsFailed: number
-  totalAumUsd: number
-  startedAt: string
-  completedAt: string | null
-}
-
-export interface ScaAnalyticsSummaryData {
-  totalUsd: number
-  spotUsd: number
-  defiUsd: number
-  walletCount: number
-  lastSnapshotAt: string | null
-  lastScan: ScaScanSummary | null
-}
-
-export interface ScaSnapshot {
-  id: string
-  userId: string
-  scaAddress: string
-  spotUsd: number
-  defiUsd: number
-  totalUsd: number
-  snapshotAt: string
-}
+export type PrivyAnalyticsSummaryData = ActiveUsersSummary
 
 export interface LazyUpdateSkipped {
   skipped: true
-  reason: 'fresh' | 'scan_in_progress'
+  reason: 'fresh' | 'sync_in_progress'
   lastUpdatedAt: string | null
   nextEligibleAt: string | null
   minIntervalMs: number
@@ -133,12 +108,10 @@ export interface BackfillExecuted {
 
 export type BackfillResult = LazyUpdateSkipped | BackfillExecuted
 
-export interface ScanExecuted {
+export interface PrivySyncExecuted {
   skipped: false
-  runId: string
-  walletsScanned: number
-  walletsFailed: number
-  totalAumUsd: number
+  totalUsers: number
+  activeUsers: number
 }
 
-export type ScanResult = LazyUpdateSkipped | ScanExecuted
+export type PrivySyncResult = LazyUpdateSkipped | PrivySyncExecuted

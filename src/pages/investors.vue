@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { formatCount, formatUsd } from '~/utils/kura-api'
+import { formatCount, formatDate, formatUsd } from '~/utils/kura-api'
 import { syncNoticeClasses, useInvestorMetrics } from '~/composables/useInvestorMetrics'
 
 definePageMeta({ layout: 'default' })
@@ -7,14 +7,15 @@ definePageMeta({ layout: 'default' })
 usePageSeo({
   title: 'Investor Metrics',
   description:
-    'Live platform metrics for investors — revenue, waitlist signups, active subscriptions, and SCA AUM on Kura Finance.',
+    'Live platform metrics for investors — revenue, waitlist signups, active subscriptions, and active users on Kura Finance.',
   path: '/investors',
-  keywords: 'Kura Finance investors, platform metrics, SCA AUM, revenue, waitlist',
+  keywords: 'Kura Finance investors, platform metrics, active users, revenue, waitlist',
 })
 
 const {
   platformSummary,
-  scaSummary,
+  activeUsers,
+  activeUserRate,
   metricsLoading,
   metricsUnavailable,
   periodLabel,
@@ -25,6 +26,11 @@ const {
   syncNotices,
   refreshMetrics,
 } = useInvestorMetrics()
+
+const activeUserRateLabel = computed(() => {
+  if (activeUserRate.value == null) return null
+  return `${(activeUserRate.value * 100).toFixed(1)}% of total users`
+})
 
 const revenueBreakdownRows = computed(() =>
   revenueBySource.value.map((row) => ({
@@ -60,7 +66,7 @@ const subscriptionBreakdownRows = computed(() =>
     <PageHero
       eyebrow="Platform insights"
       title="Investor metrics"
-      description="Live revenue, growth, and assets under management from the Kura platform — updated on demand."
+      description="Live revenue, growth, and user activity from the Kura platform — updated on demand."
       :divider="false"
     />
 
@@ -141,9 +147,9 @@ const subscriptionBreakdownRows = computed(() =>
             />
             <InvestorMetricCard
               featured
-              label="SCA AUM"
-              :value="formatUsd(platformSummary?.scaAum.totalUsd, 2)"
-              :detail="`${formatCount(platformSummary?.scaAum.walletCount)} wallets tracked`"
+              label="Active users"
+              :value="formatCount(activeUsers?.activeUsers)"
+              :detail="`${formatCount(activeUsers?.totalUsers)} total users · last 30 days`"
             />
           </div>
         </section>
@@ -160,9 +166,9 @@ const subscriptionBreakdownRows = computed(() =>
               :value="formatCount(platformSummary?.subscriptions.activeCount)"
             />
             <InvestorMetricCard
-              label="DeBank scan AUM"
-              :value="formatUsd(scaSummary?.totalUsd, 2)"
-              :detail="`Spot ${formatUsd(scaSummary?.spotUsd, 2)} · DeFi ${formatUsd(scaSummary?.defiUsd, 2)}`"
+              label="Active user rate"
+              :value="activeUserRateLabel ?? '—'"
+              :detail="activeUsers?.lastSyncedAt ? `Synced ${formatDate(activeUsers.lastSyncedAt)}` : 'Awaiting Privy sync'"
             />
           </div>
         </section>

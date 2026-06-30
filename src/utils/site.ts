@@ -10,6 +10,12 @@ export const SITE = {
   defaultOgImage: '/og.jpg',
 } as const
 
+/** Official app store listings — use for download CTAs site-wide. */
+export const APP_STORE = {
+  ios: 'https://apps.apple.com/us/app/kura-modern-usd-finance/id6779338000',
+  android: 'https://play.google.com/store/apps/details?id=com.kurafinance.app&hl=en',
+} as const
+
 export function absoluteUrl(path: string) {
   const normalized = path.startsWith('/') ? path : `/${path}`
   return `${SITE.url}${normalized}`
