@@ -1,0 +1,49 @@
+{
+  "name": "kura-landing-page",
+  "version": "1.0.0",
+  "description": "Proprietary marketing website for Kura Finance LLC (kura-finance.com).",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "author": "Kura Finance LLC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kura-Finance/LandingPage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kura-Finance/LandingPage/issues"
+  },
+  "homepage": "https://kura-finance.com",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "preview": "nuxi preview",
+    "preview:cf": "wrangler pages dev dist",
+    "deploy:cf": "wrangler pages deploy dist",
+    "typecheck": "nuxi typecheck"
+  },
+  "dependencies": {
+    "@nuxt/content": "^2.13.4",
+    "@nuxt/image": "^2.0.0",
+    "@nuxtjs/tailwindcss": "^6.10.0",
+    "@tailwindcss/typography": "^0.5.20",
+    "nuxt": "^3.11.0",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^2.7.0",
+    "@types/node": "^22",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5",
+    "vue-tsc": "^3.3.5",
+    "wrangler": "^4.24.0"
+  },
+  "overrides": {
+    "vite": "7.3.2"
+  },
+  "engines": {
+    "node": ">=22.22.2"
+  }
+}

@@ -1,0 +1,88 @@
+import { serverQueryContent } from '#content/server'
+import { absoluteUrl } from '~/utils/site'
+import { escapeXml } from '../utils/xml'
+
+interface SitemapEntry {
+  loc: string
+  lastmod: string
+  changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
+  priority: number
+}
+
+interface BlogPost {
+  _path: string
+  date?: string
+}
+
+const STATIC_ROUTES: SitemapEntry[] = [
+  { loc: absoluteUrl('/'), lastmod: '2026-06-22', changefreq: 'weekly', priority: 1.0 },
+  { loc: absoluteUrl('/download'), lastmod: '2026-06-22', changefreq: 'weekly', priority: 0.95 },
+  { loc: absoluteUrl('/account'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.9 },
+  { loc: absoluteUrl('/financial-account'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.88 },
+  { loc: absoluteUrl('/global-transfers'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/multi-currency'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/kura-card'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.9 },
+  { loc: absoluteUrl('/card-waitlist'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/invest'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/us-stocks'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/earn'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/borrow'), lastmod: '2026-06-27', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/trackfi'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.9 },
+  { loc: absoluteUrl('/connected-accounts'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/net-worth'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/banking'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.8 },
+  { loc: absoluteUrl('/investments'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.8 },
+  { loc: absoluteUrl('/digital-assets'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.8 },
+  { loc: absoluteUrl('/compare'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.88 },
+  { loc: absoluteUrl('/pricing'), lastmod: '2026-07-22', changefreq: 'weekly', priority: 0.9 },
+  { loc: absoluteUrl('/business'), lastmod: '2026-07-22', changefreq: 'monthly', priority: 0.88 },
+  { loc: absoluteUrl('/about'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.85 },
+  { loc: absoluteUrl('/blog'), lastmod: '2026-06-22', changefreq: 'weekly', priority: 0.8 },
+  { loc: absoluteUrl('/blog/product-updates'), lastmod: '2026-06-22', changefreq: 'weekly', priority: 0.75 },
+  { loc: absoluteUrl('/blog/company-news'), lastmod: '2026-06-22', changefreq: 'weekly', priority: 0.75 },
+  { loc: absoluteUrl('/docs'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.75 },
+  { loc: absoluteUrl('/help'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.7 },
+  { loc: absoluteUrl('/contact'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.7 },
+  { loc: absoluteUrl('/investors'), lastmod: '2026-06-23', changefreq: 'daily', priority: 0.7 },
+  { loc: absoluteUrl('/docs/stock-countries'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.65 },
+  { loc: absoluteUrl('/docs/on-off-ramp-countries'), lastmod: '2026-06-22', changefreq: 'monthly', priority: 0.65 },
+  { loc: absoluteUrl('/compliance'), lastmod: '2026-07-16', changefreq: 'monthly', priority: 0.55 },
+  { loc: absoluteUrl('/privacy'), lastmod: '2026-07-16', changefreq: 'yearly', priority: 0.5 },
+  { loc: absoluteUrl('/tos'), lastmod: '2026-07-16', changefreq: 'yearly', priority: 0.5 },
+  { loc: absoluteUrl('/disclaimer'), lastmod: '2026-07-16', changefreq: 'yearly', priority: 0.5 },
+  { loc: absoluteUrl('/referral-terms'), lastmod: '2026-07-16', changefreq: 'yearly', priority: 0.45 },
+  { loc: absoluteUrl('/prohibited-activities'), lastmod: '2026-07-16', changefreq: 'yearly', priority: 0.45 },
+]
+
+function renderUrl(entry: SitemapEntry) {
+  return `  <url>
+    <loc>${escapeXml(entry.loc)}</loc>
+    <lastmod>${entry.lastmod}</lastmod>
+    <changefreq>${entry.changefreq}</changefreq>
+    <priority>${entry.priority.toFixed(2)}</priority>
+  </url>`
+}
+
+export default defineEventHandler(async (event) => {
+  const posts = await serverQueryContent<BlogPost>(event, '/blog')
+    .where({ _extension: 'md' })
+    .sort({ date: -1 })
+    .find()
+
+  const blogEntries: SitemapEntry[] = posts.map((post) => ({
+    loc: absoluteUrl(post._path),
+    lastmod: post.date?.slice(0, 10) ?? '2026-06-21',
+    changefreq: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  const urls = [...STATIC_ROUTES, ...blogEntries].map(renderUrl).join('\n')
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>`
+
+  setHeader(event, 'content-type', 'application/xml; charset=utf-8')
+  setHeader(event, 'cache-control', 'public, max-age=3600')
+  return xml
+})
