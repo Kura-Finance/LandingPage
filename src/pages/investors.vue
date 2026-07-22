@@ -73,8 +73,8 @@ const rampDetailLabel = computed(() => {
 })
 
 const swapSyncedLabel = computed(() => {
-  if (!lifiSummary.value?.lastSyncedAt) return 'Swap data awaiting first sync'
-  return `Swap last synced ${formatDate(lifiSummary.value.lastSyncedAt)}`
+  if (!lifiSummary.value?.lastSyncedAt) return 'Trade data awaiting first sync'
+  return `Trade last synced ${formatDate(lifiSummary.value.lastSyncedAt)}`
 })
 
 const earnAumLabel = computed(() => {
@@ -257,12 +257,12 @@ const subscriptionBreakdownRows = computed(() =>
         >
           <div class="ir-ops ir-ops--volumes">
             <InvestorMetricCard
-              label="Swap volume"
+              label="Trade volume"
               :value="formatUsd(swapMetrics.processUsd)"
               :detail="swapDetailLabel"
             />
             <InvestorMetricCard
-              label="Crypto <> Fiat volume"
+              label="On / Off Ramps volume"
               :value="formatUsd(rampMetrics.processUsd)"
               :detail="rampDetailLabel"
             />
@@ -352,7 +352,7 @@ const subscriptionBreakdownRows = computed(() =>
               <span class="ir-notes__mark">1</span>
               <span>
                 <strong>Processing volume (Process)</strong>
-                is the total transaction amount across Crypto <> Fiat ramps, Swap transfers, and similar period-scoped flows.
+                is the total transaction amount across On / Off Ramps, Trade transfers, and similar period-scoped flows.
               </span>
             </li>
             <li>
@@ -363,7 +363,7 @@ const subscriptionBreakdownRows = computed(() =>
                 <em>platformRevenue.totalUsd</em>
                 /
                 <em>byProduct.*.revenueUsd</em>
-                . Policy is backend-owned (Bridge / Swap 0.25%, Dinari 0%, Earn 10% performance fee recognized at $0 until harvest, Card reserved, Subscriptions = Stripe). The UI never re-estimates fees.
+                . Policy is backend-owned (On / Off Ramps / Trade 0.25%, Dinari 0%, Earn 10% performance fee recognized at $0 until harvest, Card reserved, Subscriptions = Stripe). The UI never re-estimates fees.
               </span>
             </li>
             <li>
@@ -380,7 +380,7 @@ const subscriptionBreakdownRows = computed(() =>
               <span class="ir-notes__mark">4</span>
               <span>
                 <strong>Refresh</strong>
-                forces platform backfill, Swap analytics sync, and Privy sync without re-issuing referral payouts. Earn AUM refreshes with the summary response.
+                forces platform backfill, Trade analytics sync, and Privy sync without re-issuing referral payouts. Earn AUM refreshes with the summary response.
               </span>
             </li>
           </ol>

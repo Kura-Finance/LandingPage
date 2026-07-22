@@ -35,5 +35,5 @@ export function getPrivySyncSuccessMessage(result: PrivySyncExecuted): string {
 }
 
 export function getLifiSyncSuccessMessage(result: LifiSyncExecuted): string {
-  return `Swap sync complete — ${formatCount(result.transferred)} transfers imported.`
+  return `Trade sync complete — ${formatCount(result.transferred)} transfers imported.`
 }

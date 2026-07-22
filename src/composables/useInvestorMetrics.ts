@@ -238,7 +238,7 @@ export function useInvestorMetrics() {
       const line = products[key]
       return {
         key: line.key,
-        label: line.label,
+        label: displayProductLabel(line.key, line.label),
         processUsd: line.processUsd,
         revenueUsd: line.revenueUsd,
         count: line.count,
@@ -307,7 +307,7 @@ export function useInvestorMetrics() {
 
     if (!lifiSyncRes.success) {
       if (lifiSyncRes.error.code === 'LIFI_NOT_CONFIGURED') {
-        return { type: 'error', text: 'Swap analytics is not configured.' }
+        return { type: 'error', text: 'Trade analytics is not configured.' }
       }
       throw new Error(lifiSyncRes.error.message)
     }
@@ -405,8 +405,8 @@ function shortAddress(address: string) {
 }
 
 function formatSourceLabel(value: string) {
-  if (value === 'swap' || value === 'lifi') return 'Swap'
-  if (value === 'bridge' || value === 'crypto_fiat') return 'Crypto <> Fiat'
+  if (value === 'swap' || value === 'lifi') return 'Trade'
+  if (value === 'bridge' || value === 'crypto_fiat') return 'On / Off Ramps'
   if (value === 'stripe' || value === 'subscriptions') return 'Subscriptions'
   if (value === 'dinari') return 'US Stocks'
   if (value === 'card') return 'Card'
@@ -414,4 +414,15 @@ function formatSourceLabel(value: string) {
   return value
     .replace(/_/g, ' ')
     .replace(/\b\w/g, (char) => char.toUpperCase())
+}
+
+/** Prefer product keys over backend label strings for Investor UI naming. */
+function displayProductLabel(key: string, fallback: string) {
+  if (key === 'swap') return 'Trade'
+  if (key === 'bridge') return 'On / Off Ramps'
+  if (key === 'earn') return 'Kura Earn'
+  if (key === 'dinari') return 'US Stocks'
+  if (key === 'card') return 'Card'
+  if (key === 'subscriptions') return 'Subscriptions'
+  return fallback || formatSourceLabel(key)
 }
