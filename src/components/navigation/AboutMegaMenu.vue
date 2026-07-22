@@ -5,7 +5,7 @@
         <NuxtLink to="/about" class="about-mega__story-link group" @click="$emit('close')">
           <h2 class="about-mega__story-title">Our story</h2>
           <p class="about-mega__story-desc">
-            The vision behind Kura and the people building the future of modern finance.
+            Modern finance, redesigned — one account, Zero-Access privacy, and the people building it.
           </p>
         </NuxtLink>
       </aside>

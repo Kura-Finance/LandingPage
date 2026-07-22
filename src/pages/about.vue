@@ -1,476 +1,385 @@
-<template>
-  <div class="about-container text-kura-text">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="space-y-6">
-        <h1 class="hero-title">
-          Privacy Is Not a Setting. It Is the Architecture.
-        </h1>
-        <p class="hero-subtitle">
-          Kura is built on Zero-Access design, so your financial data stays inaccessible without your authorization.
-        </p>
-      </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section class="mission-section">
-      <div class="content-block">
-        <h2 class="mission-title">Our Mission: Zero-Access Financial Sovereignty</h2>
-        <p class="mission-text">
-          We design finance software where trust does not depend on blind faith in operators. In Kura's Zero-Access architecture, sensitive data is encrypted and permissioned so our team, infrastructure operators, and unauthorized third parties cannot inspect your raw records.
-        </p>
-      </div>
-    </section>
-
-    <!-- Built for Utility Section -->
-    <section class="utility-section">
-      <div class="content-block">
-        <h2 class="utility-title">Built for Privacy, Not Surveillance</h2>
-        <p class="utility-text">
-          We reject the common model where platforms quietly centralize user visibility to drive cross-selling and behavioral monetization. Kura follows a least-knowledge philosophy: collect less, expose less, and never hold unnecessary plaintext capability. Privacy is the product, not legal fine print.
-        </p>
-      </div>
-    </section>
-
-    <!-- Join the Journey Section -->
-    <section class="join-section">
-      <div class="content-block">
-        <h2 class="join-title">Join the Journey</h2>
-        <p class="join-text">
-          Whether you are an individual operator, a builder, or a global team, Kura is built for people who want financial clarity without surrendering data ownership.
-        </p>
-      </div>
-    </section>
-
-    <!-- Founder Section -->
-    <section class="founder-section">
-      <div class="founder-card">
-        <div class="quote-accent"></div>
-        <div class="flex flex-col md:flex-row gap-8 md:gap-12">
-          <!-- Avatar -->
-          <div class="flex-shrink-0">
-            <NuxtImg
-              src="/avatar.webp"
-              alt="Rick Weng, Founder"
-              width="160"
-              height="160"
-              loading="lazy"
-              decoding="async"
-              class="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-2 border-kura-primary/30"
-            />
-          </div>
-          <!-- Content -->
-          <div class="flex-1 space-y-5">
-            <h2 class="founder-heading">A Note from the Founder</h2>
-            <p class="founder-text">
-              I am not a trader, and I am not an arbitrageur or a speculator. I just wanted a simple app to manage my bank accounts, credit card spending, stocks, crypto, and staked ETH on Ether.fi and Lido in one place.
-            </p>
-            <p class="founder-text">
-              I searched for a long time, but I could not find a single product that truly covered everything I needed.
-            </p>
-            <p class="founder-text">
-              So I decided to build it myself, and to do it around the privacy principles I believe in. That is how Kura came to life.
-            </p>
-            <div class="signature">
-              <span class="name">Rick Weng</span>
-              <span class="title">Founder, Kura</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-      <h2 class="section-label">The Evolution</h2>
-      <div class="timeline-wrapper">
-        <div class="timeline">
-          <div
-            v-for="(item, index) in milestones"
-            :key="index"
-            class="timeline-item"
-          >
-            <div class="timeline-marker"></div>
-            <div class="timeline-content-wrapper">
-              <div class="timeline-header">
-                <h3 class="timeline-title">{{ item.title }}</h3>
-                <span class="timeline-time">{{ item.time }}</span>
-              </div>
-              <p class="timeline-description">{{ item.content }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trust Footer -->
-    <section class="trust-footer">
-      <div class="trust-card">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-            <h3 class="trust-title">Built with Transparency</h3>
-            <p class="trust-desc">See how our Zero-Access model minimizes readable data exposure across legal and operational scenarios.</p>
-          </div>
-          <NuxtLink to="/compliance" class="btn-primary whitespace-nowrap">
-            Visit Trust Center
-          </NuxtLink>
-        </div>
-      </div>
-    </section>
-  </div>
-</template>
-
 <script setup lang="ts">
+definePageMeta({ layout: 'default' })
+
 usePageSeo({
   title: 'About',
-  description: 'Kura builds the Super Financial App — self-custody wallet, Visa card, and encrypted portfolio tracking in one place.',
+  description:
+    'Kura is modern finance, redesigned — one account to save, spend, invest, earn, and move money globally, with privacy by default and the simplicity of a bank.',
   path: '/about',
-  keywords: 'about Kura, super financial app, self-custody, zero-access architecture',
-});
+  keywords:
+    'about Kura, modern finance, zero-access, non-custodial, financial account, TrackFi, Kura Card',
+})
+
+const principles = [
+  {
+    title: 'Beautiful by default',
+    description:
+      'Finance should feel calm and intentional — not like a terminal. We obsess over clarity so everyday money decisions feel simple.',
+  },
+  {
+    title: 'Privacy by architecture',
+    description:
+      'Zero-Access design and non-custodial control mean we do not need to hold your keys or read your connected financial life to operate the product.',
+  },
+  {
+    title: 'Global without the friction',
+    description:
+      'On / off ramps, multi-currency balances, Trade, Earn, and US markets — through regulated partners — so borders feel less like barriers.',
+  },
+]
+
+const pillars = [
+  {
+    label: 'Account',
+    title: 'One place for cash',
+    description: 'Hold, send, and receive with bank-like clarity — multi-currency and global transfers included.',
+  },
+  {
+    label: 'Grow',
+    title: 'Invest, earn, borrow',
+    description: 'US stocks via Dinari, optional Morpho yield, and on-demand liquidity — when you want them, not because you must.',
+  },
+  {
+    label: 'Spend',
+    title: 'Kura Card',
+    description: 'Spend from your balance anywhere Visa is accepted. Virtual card today; physical card on the waitlist.',
+  },
+  {
+    label: 'See everything',
+    title: 'TrackFi',
+    description: 'Encrypted portfolio tracking for banks, brokerages, and on-chain positions — without giving us plaintext visibility.',
+  },
+]
 
 const milestones = [
   {
-    time: 'Phase 1: Privacy Foundation',
+    phase: '01',
     title: 'TrackFi',
+    time: 'Privacy foundation',
     content:
-      'We started with encrypted portfolio tracking—banking, investments, and digital assets in one dashboard, with zero-access encryption so readable data stays off our servers.',
+      'Encrypted portfolio tracking for banking, investments, and digital assets — Zero-Access so readable financial data stays off our servers.',
   },
   {
-    time: 'Phase 2: Unified Account',
-    title: 'One place for your money',
+    phase: '02',
+    title: 'Unified financial account',
+    time: 'One home screen',
     content:
-      'Kura became a single financial account: add money, send globally, and see your balance and history from a calm, bank-like home screen.',
+      'Cash, transfers, and a calm bank-like experience in one place — add money, send globally, and see balance and history clearly.',
   },
   {
-    time: 'Phase 3: Grow & Access',
-    title: 'Invest, earn, and borrow',
+    phase: '03',
+    title: 'Invest, Earn & Borrow',
+    time: 'Grow & access',
     content:
-      'US stocks, transparent yield, and on-demand liquidity—Invest, Earn, and Borrow in one app, powered by regulated partners and clear terms.',
+      'US equities, transparent yield, and Morpho liquidity — powered by regulated and protocol partners with terms you can read.',
   },
   {
-    time: 'Phase 4: Spend',
-    title: 'The Kura Card',
+    phase: '04',
+    title: 'Kura Card',
+    time: 'Spend',
     content:
-      'Spendable balance meets a modern card experience: virtual card today, with a physical Kura Card waitlist for cashback and fee-free international spend.',
+      'Turn balance into everyday spend: virtual card live, physical Kura Card waitlist for cashback and fee-free international use.',
+  },
+  {
+    phase: '05',
+    title: 'Business & Team',
+    time: 'Pro web dashboard',
+    content:
+      'Shared Treasury, Approvals, Team roles, and Reports on the Pro web dashboard — company cash without a second stack of tools.',
   },
 ]
 </script>
 
+<template>
+  <div class="w-full text-kura-text bg-kura-background">
+    <PageHero
+      eyebrow="About Kura"
+      title="Modern finance, redesigned."
+      description="One account to save, spend, invest, earn, and move money globally — with the simplicity of a bank and the freedom of modern finance."
+    />
+
+    <section class="section-padding border-t border-kura-border">
+      <div class="marketing-container">
+        <div class="max-w-2xl mb-14 md:mb-20">
+          <p class="section-label mb-5">Mission</p>
+          <h2 class="headline-xl text-display-sm md:text-display-md mb-6">
+            A financial life that stays yours.
+          </h2>
+          <p class="prose-lead max-w-xl">
+            We build software, not a vault. Kura is non-custodial and Zero-Access by design: you authorize moves, partners handle regulated rails, and we never need universal plaintext access to your money or TrackFi connections to ship a beautiful product.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-10 md:gap-12 lg:gap-16">
+          <article
+            v-for="(principle, index) in principles"
+            :key="principle.title"
+            class="about-principle"
+            :class="index > 0 ? 'md:border-l md:border-kura-border md:pl-10 lg:pl-12' : ''"
+          >
+            <h3 class="font-display text-2xl text-kura-text font-normal tracking-[-0.02em] mb-4">
+              {{ principle.title }}
+            </h3>
+            <p class="text-kura-text-secondary leading-relaxed text-[0.9375rem]">
+              {{ principle.description }}
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding bg-kura-surface border-t border-kura-border">
+      <div class="marketing-container">
+        <div class="max-w-2xl mb-14 md:mb-20">
+          <p class="section-label mb-5">Product</p>
+          <h2 class="headline-xl text-display-sm md:text-display-md mb-6">
+            One account. Pick what you need.
+          </h2>
+          <p class="prose-lead max-w-xl">
+            Cash, Trade, On / Off Ramps, Earn, US stocks, card spend, and portfolio tracking work better together — and never force you to take the whole stack.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-x-10 gap-y-12 lg:gap-x-16">
+          <article v-for="pillar in pillars" :key="pillar.title" class="about-pillar">
+            <p class="section-label mb-3">{{ pillar.label }}</p>
+            <h3 class="font-display text-xl md:text-2xl text-kura-text font-normal tracking-[-0.02em] mb-3">
+              {{ pillar.title }}
+            </h3>
+            <p class="text-kura-text-secondary leading-relaxed text-[0.9375rem]">
+              {{ pillar.description }}
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding border-t border-kura-border">
+      <div class="marketing-container">
+        <div class="about-founder">
+          <NuxtImg
+            src="/avatar.webp"
+            alt="Rick Weng, Founder of Kura"
+            width="160"
+            height="160"
+            loading="lazy"
+            decoding="async"
+            class="about-founder__avatar"
+          />
+          <div class="about-founder__body">
+            <p class="section-label mb-4">Founder</p>
+            <h2 class="headline-xl text-display-sm mb-6">A note from Rick</h2>
+            <div class="space-y-5 text-kura-text-secondary leading-relaxed">
+              <p>
+                I am not a trader, and I am not an arbitrageur. I wanted a simple place to manage bank accounts, card spending, stocks, crypto, and on-chain yield — without juggling five apps or surrendering privacy for convenience.
+              </p>
+              <p>
+                I could not find that product. So I built Kura: modern finance with a bank-like calm, Zero-Access privacy, and partners for the rails that must be regulated.
+              </p>
+            </div>
+            <div class="about-founder__sign">
+              <span class="about-founder__name">Rick Weng</span>
+              <span class="about-founder__role">Founder, Kura Finance LLC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding bg-white border-t border-kura-border">
+      <div class="marketing-container">
+        <div class="max-w-2xl mb-14 md:mb-16">
+          <p class="section-label mb-5">Evolution</p>
+          <h2 class="headline-xl text-display-sm md:text-display-md">
+            How Kura grew into one account.
+          </h2>
+        </div>
+
+        <ol class="about-timeline">
+          <li v-for="item in milestones" :key="item.phase" class="about-timeline__item">
+            <p class="about-timeline__phase" aria-hidden="true">{{ item.phase }}</p>
+            <div class="about-timeline__content">
+              <div class="about-timeline__head">
+                <h3 class="about-timeline__title">{{ item.title }}</h3>
+                <span class="about-timeline__time">{{ item.time }}</span>
+              </div>
+              <p class="about-timeline__body">{{ item.content }}</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-padding border-t border-kura-border">
+      <div class="marketing-container">
+        <div class="about-trust">
+          <div class="about-trust__copy">
+            <p class="section-label mb-4">Trust</p>
+            <h2 class="headline-xl text-display-sm mb-4">Built in the open where it matters.</h2>
+            <p class="text-kura-text-secondary leading-relaxed max-w-lg">
+              Corporate details, Zero-Access posture, and the partner stack that powers regulated functions live in our Trust &amp; Security Center.
+            </p>
+          </div>
+          <div class="about-trust__actions">
+            <NuxtLink to="/compliance" class="btn-primary">
+              Trust Center
+            </NuxtLink>
+            <NuxtLink to="/download" class="btn-secondary">
+              Get Account
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Start with one account"
+      description="Download Kura for iPhone or Android — or open the Pro web dashboard when your team is ready."
+    />
+  </div>
+</template>
+
 <style scoped>
-.about-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 80px 24px;
+.about-founder {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+  max-width: 52rem;
 }
 
-/* Hero Section */
-.hero-section {
-  text-align: center;
-  margin-bottom: 120px;
+@media (min-width: 768px) {
+  .about-founder {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    gap: 3rem;
+  }
 }
 
-.hero-title {
-  font-size: clamp(2.5rem, 8vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  background: linear-gradient(135deg, #111827 0%, #4B5563 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.about-founder__avatar {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 1rem;
+  object-fit: cover;
+  border: 1px solid #e1e4ec;
 }
 
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: #6B7280;
-  max-width: 600px;
-  margin: 0 auto;
+@media (min-width: 768px) {
+  .about-founder__avatar {
+    width: 10rem;
+    height: 10rem;
+  }
 }
 
-/* Mission Section */
-.mission-section {
-  margin-bottom: 100px;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-  padding: 60px;
-}
-
-.mission-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #111827;
-}
-
-.mission-text {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #6B7280;
-  margin: 0;
-}
-
-/* Utility Section */
-.utility-section {
-  margin-bottom: 100px;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-  padding: 60px;
-}
-
-.utility-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #111827;
-}
-
-.utility-text {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #6B7280;
-  margin: 0;
-}
-
-/* Join Section */
-.join-section {
-  margin-bottom: 100px;
-  background: rgba(124, 58, 237, 0.05);
-  border: 1px solid rgba(124, 58, 237, 0.15);
-  border-radius: 12px;
-  padding: 60px;
-}
-
-.join-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #111827;
-}
-
-.join-text {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #6B7280;
-  margin: 0;
-}
-
-/* Founder Section */
-.founder-section {
-  margin-bottom: 160px;
-}
-
-.founder-card {
-  position: relative;
-  background: rgba(0, 0, 0, 0.02);
-  padding: 48px;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.quote-accent {
-  position: absolute;
-  left: 0;
-  top: 48px;
-  width: 4px;
-  height: 80px;
-  background: #7c3aed;
-  border-radius: 2px;
-}
-
-.founder-heading {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #111827;
-}
-
-.founder-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #6B7280;
-}
-
-.signature {
-  margin-top: 24px;
+.about-founder__sign {
+  margin-top: 1.75rem;
   display: flex;
   flex-direction: column;
+  gap: 0.25rem;
 }
 
-.signature .name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-family: 'Georgia', serif;
+.about-founder__name {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.375rem;
   font-style: italic;
-  color: #111827;
-}
-
-.signature .title {
-  color: #9CA3AF;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-}
-
-/* Timeline Section */
-.timeline-section {
-  margin-bottom: 160px;
-}
-
-.section-label {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 64px;
-  font-weight: 700;
-}
-
-.timeline-wrapper {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.timeline {
-  position: relative;
-  padding-left: 30px;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, #7c3aed, transparent);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -36px;
-  top: 0;
-  width: 12px;
-  height: 12px;
-  background: #7c3aed;
-  border-radius: 50%;
-  border: 3px solid #ffffff;
-}
-
-.timeline-content-wrapper {
-  padding-bottom: 16px;
-}
-
-.timeline-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 8px;
-  gap: 16px;
-}
-
-.timeline-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #111827;
-  margin: 0;
-}
-
-.timeline-time {
-  font-size: 0.9rem;
-  color: #7c3aed;
   font-weight: 500;
-  white-space: nowrap;
+  color: #12131a;
 }
 
-.timeline-description {
-  color: #9CA3AF;
-  line-height: 1.6;
+.about-founder__role {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: #9499a8;
+}
+
+.about-timeline {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid #12131a;
 }
 
-/* Trust Card */
-.trust-footer {
-  margin-bottom: 120px;
+.about-timeline__item {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 1rem 1.25rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid #e1e4ec;
 }
 
-.trust-card {
-  border-radius: 12px;
-  background: rgba(124, 58, 237, 0.05);
-  border: 1px solid rgba(124, 58, 237, 0.15);
-  padding: 32px;
+@media (min-width: 640px) {
+  .about-timeline__item {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
 }
 
-.trust-title {
-  font-size: 1.2rem;
-  font-weight: 600;
+.about-timeline__phase {
   margin: 0;
-  color: #111827;
+  padding-top: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  color: #9499a8;
 }
 
-.trust-desc {
-  color: #9CA3AF;
-  margin: 8px 0 0 0;
-  font-size: 0.95rem;
+.about-timeline__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
 }
 
-@media (max-width: 768px) {
-  .about-container {
-    padding: 60px 16px;
-  }
+.about-timeline__title {
+  margin: 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #12131a;
+}
 
-  .hero-title {
-    font-size: 2rem;
-  }
+.about-timeline__time {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7c5cfc;
+}
 
-  .hero-section {
-    margin-bottom: 80px;
-  }
+.about-timeline__body {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #64687a;
+}
 
-  .mission-section,
-  .utility-section,
-  .join-section {
-    margin-bottom: 60px;
-    padding: 24px;
-  }
+.about-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 2rem 0;
+}
 
-  .mission-title,
-  .utility-title,
-  .join-title {
-    font-size: 1.5rem;
+@media (min-width: 768px) {
+  .about-trust {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
   }
+}
 
-  .mission-text,
-  .utility-text,
-  .join-text {
-    font-size: 0.95rem;
-  }
-
-  .founder-card {
-    padding: 24px;
-  }
-
-  .section-label {
-    font-size: 1.75rem;
-    margin-bottom: 40px;
-  }
-
-  .founder-section {
-    margin-bottom: 100px;
-  }
-
-  .timeline-section {
-    margin-bottom: 100px;
-  }
-
-  .trust-card {
-    padding: 24px;
-  }
-
-  .trust-title {
-    font-size: 1rem;
-  }
+.about-trust__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 </style>
