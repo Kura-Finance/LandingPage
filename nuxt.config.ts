@@ -54,7 +54,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'apple-touch-icon', href: '/icon.webp' },
+        { rel: 'apple-touch-icon', href: '/icon_background.webp' },
         { rel: 'mask-icon', href: '/favicon.svg', color: '#7C5CFC' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
@@ -163,6 +163,7 @@ export default defineNuxtConfig({
     '/compliance': { prerender: true },
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/icon.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/icon_background.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/favicon.svg': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/og.jpg': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/screenshot.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },

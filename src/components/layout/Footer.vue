@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { brandIconUrl } from '~/utils/brand'
+import { brandIconOnDarkUrl } from '~/utils/brand'
 </script>
 
 <template>
@@ -8,7 +8,7 @@ import { brandIconUrl } from '~/utils/brand'
       <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10 mb-8 md:mb-12">
         <div class="space-y-4 col-span-1 md:col-span-2">
           <h3 class="text-xl font-bold flex items-center gap-2">
-            <img :src="brandIconUrl" alt="Kura Logo" width="32" height="32" loading="lazy" decoding="async" class="w-8 h-8" />
+            <img :src="brandIconOnDarkUrl" alt="Kura Logo" width="32" height="32" loading="lazy" decoding="async" class="w-8 h-8" />
             Kura
           </h3>
           <p class="text-sm text-kura-ink-subtle leading-relaxed max-w-sm">

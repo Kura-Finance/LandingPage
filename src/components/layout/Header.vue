@@ -12,7 +12,7 @@
         <div class="flex-shrink-0 flex items-center">
           <NuxtLink to="/" class="flex items-center gap-2.5 group w-fit" @click="closeAll">
             <img
-              :src="brandIconUrl"
+              :src="isMenuDark ? brandIconOnDarkUrl : brandIconUrl"
               alt="Kura Logo"
               width="32"
               height="32"
@@ -345,7 +345,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
-import { brandIconUrl } from '~/utils/brand'
+import { brandIconOnDarkUrl, brandIconUrl } from '~/utils/brand'
 const isMobileMenuOpen = ref(false)
 const activeDropdown = ref<string | null>(null)
 const activeMobileSubmenu = ref<string | null>(null)
