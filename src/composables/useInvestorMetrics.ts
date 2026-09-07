@@ -418,7 +418,7 @@ function formatSourceLabel(value: string) {
 
 /** Prefer product keys over backend label strings for Investor UI naming. */
 function displayProductLabel(key: string, fallback: string) {
-  if (key === 'swap') return 'Trade'
+  if (key === 'swap') return 'Swap'
   if (key === 'bridge') return 'On / Off Ramps'
   if (key === 'earn') return 'Kura Earn'
   if (key === 'dinari') return 'US Stocks'
