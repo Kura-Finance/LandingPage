@@ -17,6 +17,12 @@ export const APP_STORE = {
 /** Pro web dashboard — use for Pro Dashboard CTAs site-wide. */
 export const WEB_APP_URL = 'https://app.kura-finance.com' as const
 
+/** Links for the shutdown notice popup. */
+export const SHUTDOWN = {
+  privyUrl: 'https://home.privy.io',
+  githubUrl: 'https://github.com/Kura-Finance',
+} as const
+
 export function absoluteUrl(path: string) {
   const normalized = path.startsWith('/') ? path : `/${path}`
   return `${SITE.url}${normalized}`

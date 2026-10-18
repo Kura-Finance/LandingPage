@@ -3,7 +3,7 @@
     <PageHero
       eyebrow="Legal"
       title="Risk Disclosure"
-      description="Last updated: July 16, 2026. Important risks of using Kura and related digital-asset products."
+      description="Last updated: October 18, 2026. Important risks of using Kura and related digital-asset products."
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
@@ -12,14 +12,19 @@
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             This Risk Disclosure is incorporated into the
             <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>.
+            Kura Finance LLC has shut down. Kura is now an open-source project with only basic wallet features maintained, and you use it entirely at your own risk.
             Digital assets and DeFi can result in total loss of funds. Only use money you can afford to lose. This is not financial, legal, or tax advice.
           </p>
         </section>
 
         <section>
-          <h2 class="text-2xl font-bold text-kura-text mb-4">1. Financial Technology App, Not a Bank</h2>
+          <h2 class="text-2xl font-bold text-kura-text mb-4">1. Open-Source Software, Not a Bank</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura is a product of Kura Finance LLC, a software company. Kura Finance LLC is not a bank, broker-dealer, money transmitter, exchange, custodian, or investment adviser. Card and fiat on/off-ramp services are provided through regulated third-party partners. Crypto assets and tokenized securities are volatile and are not insured by the FDIC, SIPC, FSCS, or any government agency.
+            Kura is open-source software operated by Rick Weng, an individual (the “Operator”). The source code is copyright Prism Capital LLC. Kura Finance LLC, which previously developed and operated Kura, has been dissolved. None of them is a bank, broker-dealer, money transmitter, exchange, custodian, or investment adviser. Crypto assets and tokenized securities are volatile and are not insured by the FDIC, SIPC, FSCS, or any government agency.
+          </p>
+          <p class="text-kura-text-secondary leading-relaxed mt-3">
+            <span class="font-semibold text-kura-text">Unmaintained and discontinued services.</span>
+            Only basic wallet features are maintained, on a best-effort basis and without a support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued. Any remaining feature, server, or integration may stop working or be switched off at any time without notice, and bugs or vulnerabilities may never be fixed. If the integration with our authentication partner (Privy) stops, you may lose access through Kura; export your private keys and keep them safe while you can.
           </p>
         </section>
 
@@ -68,14 +73,14 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">8. Tokenized Securities and RWA Risk</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Access to tokenized real-world assets and US equities (including via Dinari) is subject to partner KYC, suitability, and jurisdictional limits. Tokenized securities can lose value, may have limited secondary liquidity, and are not the same as holding traditional brokerage assets in every legal respect. Partner outages or restrictions can block trading or redemption.
+            Access to tokenized real-world assets and US equities through Kura (including via Dinari) has been discontinued. Any tokenized assets you still hold remain subject to the issuer’s and partner’s own terms. Access to such assets is subject to partner KYC, suitability, and jurisdictional limits. Tokenized securities can lose value, may have limited secondary liquidity, and are not the same as holding traditional brokerage assets in every legal respect. Partner outages or restrictions can block trading or redemption.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">9. Card and Fiat Ramp Risk</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Card and on/off-ramp services depend on issuers, banks, payment networks, and KYC partners. Transactions can be declined, delayed, reversed, or limited. FX rates and fees apply. Waitlist status does not guarantee a card or timing. Your relationship with the issuer is governed by a separate cardholder agreement when issued.
+            Card and fiat on/off-ramp services through Kura have been permanently discontinued, and no cards will be issued. Any past card or ramp transactions remain subject to the relevant issuer’s, bank’s, or partner’s own terms.
           </p>
         </section>
 
@@ -89,7 +94,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">11. Regulatory and Availability Risk</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Laws governing digital assets, DeFi, cards, and securities change. Features may be unavailable in your region, withdrawn, or modified to comply with law or partner requirements. Joining a waitlist does not guarantee access.
+            Laws governing digital assets, DeFi, cards, and securities change. Features may be unavailable in your region, withdrawn, or modified to comply with law or partner requirements.
           </p>
         </section>
 
@@ -103,14 +108,14 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">13. No Fiduciary Duty</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Your use of Kura does not create a fiduciary, advisory, or principal-agent relationship with Kura Finance LLC. You alone evaluate the merits and risks of any tool, asset, or information.
+            Your use of Kura does not create a fiduciary, advisory, or principal-agent relationship with the Operator, Prism Capital LLC, or any contributor to the Kura open-source project. You alone evaluate the merits and risks of any tool, asset, or information.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">14. Acknowledgement</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            By using the Service, you acknowledge that you have read this Risk Disclosure and accept these risks. For liability limits and dispute resolution, see the Terms of Service.
+            By using the Service, you acknowledge that you have read this Risk Disclosure, including the open-source and discontinued-service risks in Section 1, and that you use the Service entirely at your own risk. For liability limits and dispute resolution, see the Terms of Service.
           </p>
         </section>
       </div>
@@ -134,6 +139,6 @@ usePageSeo({
   description:
     'Kura risk disclosure covering non-custodial wallets, DeFi yield and borrow, bridges, tokenized securities, and partner services.',
   path: '/disclaimer',
-  keywords: 'risk disclosure, disclaimer, DeFi risk, non-custodial, Kura Finance LLC legal',
+  keywords: 'risk disclosure, disclaimer, DeFi risk, non-custodial, Kura open source',
 })
 </script>

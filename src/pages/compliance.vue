@@ -3,30 +3,41 @@
     <PageHero
       eyebrow="Trust & security"
       title="Trust & Security Center"
-      description="Kura is a non-custodial super financial app built around Zero-Access privacy, so sensitive user data remains unreadable to operators by default. Last updated: June 2026"
+      description="Kura is a non-custodial, open-source wallet built around Zero-Access privacy, so sensitive user data remains unreadable to operators by default. Last updated: October 2026"
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
       <div class="prose max-w-none space-y-8">
-        <!-- Corporate Entity -->
+        <!-- Operator & Ownership -->
         <section>
-          <h2 class="text-2xl font-bold text-kura-text mb-4">Corporate Entity</h2>
+          <h2 class="text-2xl font-bold text-kura-text mb-4">Operator &amp; Ownership</h2>
           <div class="space-y-3">
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Legal Name:</span> Kura Finance LLC
+              <span class="font-semibold text-kura-text">Operator:</span> Rick Weng, an individual
             </p>
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Jurisdiction:</span> Registered in the State of Wyoming, USA
+              <span class="font-semibold text-kura-text">Source code &amp; copyright:</span> Prism Capital LLC, published on
+              <a href="https://github.com/Kura-Finance" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-accent">GitHub</a>
             </p>
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Mailing Address:</span> 1007 N Orange St. 4th Floor 5629
-              <br />
-              Wilmington, DE 19801
+              <span class="font-semibold text-kura-text">Former operator:</span> Kura Finance LLC, a Wyoming limited liability company (dissolved)
             </p>
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">D-U-N-S® Number:</span> 14-499-3126
+              <span class="font-semibold text-kura-text">Contact:</span>
+              <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>
             </p>
           </div>
+        </section>
+
+        <!-- Service Status -->
+        <section>
+          <h2 class="text-2xl font-bold text-kura-text mb-4">Service Status</h2>
+          <p class="text-kura-text-secondary leading-relaxed">
+            Kura Finance LLC has shut down. Kura is now an open-source project with only basic wallet features maintained, on a best-effort basis and without a support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. The Service is provided “as is” and used at your own risk; see the
+            <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>
+            and
+            <NuxtLink to="/disclaimer" class="text-kura-primary hover:text-kura-accent">Risk Disclosure</NuxtLink>.
+          </p>
         </section>
 
         <!-- Cryptographic Privacy & Infrastructure -->
@@ -65,22 +76,22 @@
 
         <!-- Regulated Partners -->
         <section>
-          <h2 class="text-2xl font-bold text-kura-text mb-4">Regulated Partners</h2>
+          <h2 class="text-2xl font-bold text-kura-text mb-4">Third-Party Providers</h2>
           <p class="text-kura-text-secondary leading-relaxed mb-4">
-            Regulated financial functions are delivered through established third-party providers, each operating under its own licenses, compliance programs, and terms:
+            Kura relies on independent third-party providers, each operating under its own licenses, compliance programs, and terms. Providers marked “discontinued” are no longer integrated with Kura:
           </p>
           <ul class="list-disc pl-6 space-y-2 text-kura-text-secondary leading-relaxed">
-            <li><span class="font-semibold text-kura-text">Privy</span> — wallet authentication, OAuth sign-in, and MPC key management.</li>
-            <li><span class="font-semibold text-kura-text">Bridge</span> — fiat on/off ramp and virtual accounts.</li>
-            <li><span class="font-semibold text-kura-text">MoonPay</span> — card-based crypto purchases.</li>
+            <li><span class="font-semibold text-kura-text">Privy</span> — wallet authentication, OAuth sign-in, MPC key management, and private-key export.</li>
+            <li><span class="font-semibold text-kura-text">Bridge</span> — fiat on/off ramp and virtual accounts (discontinued).</li>
+            <li><span class="font-semibold text-kura-text">MoonPay</span> — card-based crypto purchases (discontinued).</li>
             <li><span class="font-semibold text-kura-text">Li.Fi</span> — crypto swaps and cross-chain bridges.</li>
             <li><span class="font-semibold text-kura-text">Morpho</span> — DeFi yield vaults and lending/borrow markets on Base.</li>
-            <li><span class="font-semibold text-kura-text">Dinari</span> — tokenized real-world assets and US equities.</li>
-            <li><span class="font-semibold text-kura-text">Sumsub</span> — identity verification for card partner onboarding.</li>
-            <li><span class="font-semibold text-kura-text">Card partners</span> — non-custodial debit card issuance and processing.</li>
-            <li><span class="font-semibold text-kura-text">Stripe</span> — subscription billing.</li>
-            <li><span class="font-semibold text-kura-text">Plaid</span> — read-only bank and investment account connectivity.</li>
-            <li><span class="font-semibold text-kura-text">CEX partners</span> — read-only exchange API connections for TrackFi balance tracking.</li>
+            <li><span class="font-semibold text-kura-text">Dinari</span> — tokenized real-world assets and US equities (discontinued).</li>
+            <li><span class="font-semibold text-kura-text">Sumsub</span> — identity verification for card partner onboarding (discontinued).</li>
+            <li><span class="font-semibold text-kura-text">Card partners</span> — non-custodial debit card issuance and processing (discontinued).</li>
+            <li><span class="font-semibold text-kura-text">Stripe</span> — subscription billing (discontinued).</li>
+            <li><span class="font-semibold text-kura-text">Plaid</span> — read-only bank and investment account connectivity (discontinued).</li>
+            <li><span class="font-semibold text-kura-text">CEX partners</span> — read-only exchange API connections for TrackFi balance tracking (discontinued).</li>
             <li><span class="font-semibold text-kura-text">DeBank</span> — on-chain token and DeFi position data.</li>
             <li><span class="font-semibold text-kura-text">CoinGecko</span> — cryptocurrency market data.</li>
             <li><span class="font-semibold text-kura-text">Pimlico</span> — smart-account transaction infrastructure on Base.</li>
@@ -95,14 +106,15 @@
             <div>
               <h3 class="text-lg font-semibold text-kura-text mb-2">Identity Verification (KYC/AML):</h3>
               <p class="text-kura-text-secondary leading-relaxed">
-                Where required, identity verification is performed by our regulated partners — not Kura. Separate flows may apply: Bridge for fiat ramps (including business KYB where supported), Sumsub for card partner onboarding, and Dinari for US securities access. KYC data is processed by those partners to meet their anti-money-laundering obligations and is not held by Kura in readable form.
+                Kura no longer offers any feature that requires identity verification. While those features were available, identity verification was performed by regulated partners — not Kura: Bridge for fiat ramps (including business KYB where supported), Sumsub for card partner onboarding, and Dinari for US securities access. KYC data was processed by those partners to meet their anti-money-laundering obligations, is not held by Kura in readable form, and may be retained by those partners under their own obligations.
               </p>
             </div>
 
             <div>
               <h3 class="text-lg font-semibold text-kura-text mb-2">Subscriptions & Referrals:</h3>
               <p class="text-kura-text-secondary leading-relaxed">
-                Paid tiers (Basic, Pro, Ultimate) are processed through Stripe or applicable app-store billing. The referral program pays eligible referrers up to 10% revenue share on eligible platform revenue generated by users they invite, subject to in-app program rules including eligibility, pending periods, and reversal on refunds or chargebacks.
+                Paid tiers (Basic, Pro, Ultimate) and the referral program have been permanently discontinued. Past participation remains subject to the
+                <NuxtLink to="/referral-terms" class="text-kura-primary hover:text-kura-accent">Referral Program Terms</NuxtLink>.
               </p>
             </div>
 
@@ -116,7 +128,7 @@
             <div>
               <h3 class="text-lg font-semibold text-kura-text mb-2">Regional Availability:</h3>
               <p class="text-kura-text-secondary leading-relaxed">
-                Certain features, including the Kura Card (waitlist), fiat ramps, Dinari securities, Morpho Earn, and Morpho Borrow, are available only in supported regions and to users who meet partner eligibility requirements.
+                The Kura Card, fiat ramps, and Dinari securities are discontinued. Remaining features, including Morpho Earn and Morpho Borrow, may be unavailable in some regions and depend on third-party protocols and providers.
               </p>
             </div>
           </div>

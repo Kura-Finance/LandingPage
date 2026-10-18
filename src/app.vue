@@ -1,5 +1,6 @@
 <template>
   <AppLoader />
+  <ShutdownNotice />
   <div class="min-h-screen bg-kura-background text-kura-text flex flex-col">
     <div class="relative z-10 flex flex-col flex-grow">
       <NuxtLayout>

@@ -3,7 +3,7 @@
     <PageHero
       eyebrow="Legal"
       title="Terms of Service"
-      description="Last updated: July 16, 2026. These Terms govern your use of Kura. Please read them carefully."
+      description="Last updated: October 18, 2026. These Terms govern your use of Kura. Please read them carefully."
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
@@ -11,7 +11,8 @@
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             <span class="font-semibold text-kura-text">Important.</span>
-            These Terms include a binding arbitration agreement and class-action waiver in Section 18.
+            Kura Finance LLC has shut down. Kura is now an open-source project with only basic wallet features maintained, provided “as is” and used entirely at your own risk (see Sections 3, 16 and 17).
+            These Terms include a binding arbitration agreement and class-action waiver in Section 19.
             By using the Service you agree to resolve disputes individually through arbitration, except where prohibited by law.
             Related documents:
             <NuxtLink to="/privacy" class="text-kura-primary hover:text-kura-accent">Privacy Policy</NuxtLink>,
@@ -25,7 +26,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Acceptance of Terms</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            These Terms of Service (the “Terms”) are a binding agreement between you and Kura Finance LLC, a Wyoming limited liability company (“Kura,” “Company,” “we,” “us,” or “our”). They govern your access to and use of the Kura mobile application, websites (including kura-finance.com and related subdomains), APIs, dashboards, and any other products or services we enable that link to these Terms (collectively, the “Service”).
+            These Terms of Service (the “Terms”) are a binding agreement between you and Rick Weng, an individual (the “Operator,” “we,” “us,” or “our”). Kura Finance LLC has been dissolved and is no longer a party to, or the operator of, the Service. In these Terms, “Kura” refers to the Service. They govern your access to and use of the Kura mobile application, websites (including kura-finance.com and related subdomains), APIs, dashboards, and any other products or services we enable that link to these Terms (collectively, the “Service”).
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             By creating an account, accessing, or using the Service, you agree to these Terms and to the documents incorporated by reference. If you do not agree, do not use the Service. If you use the Service on behalf of an entity, you represent that you have authority to bind that entity, and “you” includes that entity.
@@ -42,6 +43,12 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">3. Description of the Service</h2>
           <p class="text-kura-text-secondary leading-relaxed">
+            <span class="font-semibold text-kura-text">Open-source project; discontinued services.</span>
+            Kura Finance LLC has shut down. Kura is now an open-source project whose source code is published on
+            <a href="https://github.com/Kura-Finance" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-accent">GitHub</a>.
+            Only basic wallet features are maintained, on a best-effort basis and without a support team. Bank transfers and fiat ramps, US stocks, cards, KYC, TrackFi, subscriptions, and referrals are permanently discontinued, and we no longer accept sign-ups or deposits. Any other feature may be changed, left unmaintained, or switched off at any time without notice. Descriptions of features below are kept for reference and do not mean those features are available.
+          </p>
+          <p class="text-kura-text-secondary leading-relaxed mt-3">
             Kura is a non-custodial financial technology application that brings together self-directed tools in one interface, including:
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-2 text-kura-text-secondary leading-relaxed">
@@ -145,7 +152,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">12. Intellectual Property; License</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            The Service, including software, branding, text, graphics, and logos, is owned by Kura or its licensors and is protected by intellectual property laws. Subject to these Terms, we grant you a limited, revocable, non-exclusive, non-transferable license to access and use the Service for your personal or internal business use. You may not copy, modify, distribute, reverse engineer, or create derivative works of the Service except as permitted by law. “Kura” and related marks are trademarks of Kura Finance LLC. Feedback you provide may be used by us without restriction or compensation.
+            The source code of the Service is copyright Prism Capital LLC and is published on GitHub under the license stated in each repository. Your use, copying, modification, and distribution of that source code are governed by that license. These Terms govern your use of the Service as operated by us. “Kura” and related names and logos identify the Service; these Terms do not grant you any right to use them. Feedback you provide may be used by us without restriction or compensation.
           </p>
         </section>
 
@@ -159,7 +166,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">14. Monitoring, Enforcement, and Legal Process</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            We may monitor use of the Service for security, fraud prevention, and compliance. We may access, preserve, and disclose information associated with your account in response to valid legal process, to comply with law, to enforce these Terms, or to protect Kura, users, or the public. Because your wallet is non-custodial, we cannot seize, freeze, or transfer assets held in your wallet; restrictions generally apply to Service access, not to underlying on-chain assets. On-chain activity is publicly visible regardless of any action by Kura.
+            We may monitor use of the Service for security, fraud prevention, and compliance. We may access, preserve, and disclose information associated with your account in response to valid legal process, to comply with law, to enforce these Terms, or to protect us, users, or the public. Because your wallet is non-custodial, we cannot seize, freeze, or transfer assets held in your wallet; restrictions generally apply to Service access, not to underlying on-chain assets. On-chain activity is publicly visible regardless of any action by Kura.
           </p>
         </section>
 
@@ -175,22 +182,38 @@
           <p class="text-kura-text-secondary leading-relaxed uppercase text-sm tracking-wide">
             To the maximum extent permitted by law, the Service is provided “as is” and “as available,” without warranties of any kind, whether express, implied, or statutory, including merchantability, fitness for a particular purpose, title, and non-infringement. We do not warrant that the Service will be uninterrupted, secure, error-free, or free of harmful components, or that data will be accurate or complete. You assume all risk arising from use of the Service, digital assets, smart contracts, and third-party providers.
           </p>
+          <p class="text-kura-text-secondary leading-relaxed mt-3">
+            Kura is an open-source project. It is not maintained by a company, has no support team, and may contain bugs or vulnerabilities that will not be fixed. We make no commitment to keep any feature, server, or integration running.
+          </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">17. Limitation of Liability</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            To the maximum extent permitted by law, Kura Finance LLC and its officers, directors, employees, and agents will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, revenue, data, goodwill, digital assets, or business opportunity, arising out of or related to the Service or these Terms, whether based in contract, tort, or otherwise, even if advised of the possibility.
+            To the maximum extent permitted by law, the Operator, Prism Capital LLC, and the contributors to the Kura open-source project (together, the “Kura Parties”) will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, revenue, data, goodwill, digital assets, or business opportunity, arising out of or related to the Service or these Terms, whether based in contract, tort, or otherwise, even if advised of the possibility.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
-            Our total liability for any claim arising out of or relating to the Service or these Terms will not exceed the greater of (a) the amounts you paid to Kura for the Service in the twelve (12) months before the claim, or (b) one hundred U.S. dollars (US$100). Some jurisdictions do not allow certain limitations; in those cases, our liability is limited to the fullest extent permitted.
+            Without limiting the above, and to the maximum extent permitted by law, the Kura Parties are not liable for any loss arising from your use of the Service, including but not limited to loss caused by:
+          </p>
+          <ul class="list-disc pl-6 mt-3 space-y-2 text-kura-text-secondary leading-relaxed">
+            <li>using features, servers, or integrations that are unmaintained, discontinued, or no longer supported;</li>
+            <li>lost, forgotten, exposed, or compromised seed phrases, private keys, passkeys, or login credentials;</li>
+            <li>transfers sent to the wrong address, network, or recipient;</li>
+            <li>software bugs, vulnerabilities, or smart-contract failures; and</li>
+            <li>hacks, phishing, malware, or other security incidents resulting from your device, environment, or actions.</li>
+          </ul>
+          <p class="text-kura-text-secondary leading-relaxed mt-3">
+            By continuing to use the Service, you acknowledge these risks and use the Service entirely at your own risk.
+          </p>
+          <p class="text-kura-text-secondary leading-relaxed mt-3">
+            Our total liability for any claim arising out of or relating to the Service or these Terms will not exceed the greater of (a) the amounts you paid to us for the Service in the twelve (12) months before the claim, or (b) one hundred U.S. dollars (US$100). Some jurisdictions do not allow certain limitations; in those cases, our liability is limited to the fullest extent permitted.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">18. Indemnification</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            You agree to defend, indemnify, and hold harmless Kura Finance LLC and its officers, directors, employees, agents, and partners from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys’ fees) arising out of or related to: (a) your use of the Service; (b) your violation of these Terms or applicable law; (c) your digital assets, keys, or transactions; (d) your content or submissions; or (e) disputes between you and third parties (including partners, protocols, or other users).
+            You agree to defend, indemnify, and hold harmless the Kura Parties and their agents and partners from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys’ fees) arising out of or related to: (a) your use of the Service; (b) your violation of these Terms or applicable law; (c) your digital assets, keys, or transactions; (d) your content or submissions; or (e) disputes between you and third parties (including partners, protocols, or other users).
           </p>
         </section>
 
@@ -208,7 +231,7 @@
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             <span class="font-semibold text-kura-text">Class-action and jury waiver.</span>
-            You and Kura agree that disputes will be brought only in an individual capacity, and not as a plaintiff or class member in any class, consolidated, or representative proceeding. You and Kura waive any right to a jury trial to the fullest extent permitted by law.
+            You and we agree that disputes will be brought only in an individual capacity, and not as a plaintiff or class member in any class, consolidated, or representative proceeding. You and we waive any right to a jury trial to the fullest extent permitted by law.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             If this arbitration agreement is found unenforceable as to a particular claim, that claim must be brought exclusively in the state or federal courts located in Wyoming, and Section 20 applies. If you are a consumer in a jurisdiction that prohibits mandatory arbitration, the dispute-resolution rules of that jurisdiction control to the extent required.
@@ -225,21 +248,19 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">21. App Stores</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            If you download the Application from the Apple App Store or Google Play, you acknowledge that these Terms are between you and Kura, not Apple or Google. Apple and Google are not responsible for the Application or its content, maintenance, or support, except as required by their store terms. Your use must also comply with applicable store terms.
+            If you download the Application from the Apple App Store or Google Play, you acknowledge that these Terms are between you and the Operator, not Apple or Google. Apple and Google are not responsible for the Application or its content, maintenance, or support, except as required by their store terms. Your use must also comply with applicable store terms.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">22. General Provisions</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            These Terms, together with the Privacy Policy, Risk Disclosure, Prohibited Activities List, Referral Program Terms, and any applicable cardholder or partner terms, are the entire agreement between you and Kura regarding the Service and supersede prior agreements on that subject. If any provision is unenforceable, the remaining provisions remain in effect. Our failure to enforce a provision is not a waiver. You may not assign these Terms without our consent; we may assign them in connection with a merger, acquisition, or sale of assets. Notices may be provided electronically to the email associated with your account or in-app. Sections intended to survive termination will survive. The English version of these Terms controls if translated.
+            These Terms, together with the Privacy Policy, Risk Disclosure, Prohibited Activities List, Referral Program Terms, and any applicable cardholder or partner terms, are the entire agreement between you and the Operator regarding the Service and supersede prior agreements on that subject. If any provision is unenforceable, the remaining provisions remain in effect. Our failure to enforce a provision is not a waiver. You may not assign these Terms without our consent; we may assign them in connection with a merger, acquisition, or sale of assets. Notices may be provided electronically to the email associated with your account or in-app. Sections intended to survive termination will survive. The English version of these Terms controls if translated.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Contact:
-            <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>
-            · Support:
-            <a href="mailto:support@kura-finance.com" class="text-kura-primary hover:text-kura-accent">support@kura-finance.com</a>
-            · Mailing: Kura Finance LLC, 1007 N Orange St. 4th Floor 5629, Wilmington, DE 19801.
+            <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>.
+            There is no support team; we may not respond to support requests.
           </p>
         </section>
       </div>
@@ -261,8 +282,8 @@ definePageMeta({
 usePageSeo({
   title: 'Terms of Service',
   description:
-    'Kura Terms of Service governing use of Kura, Kura Card, TrackFi, Morpho Earn/Borrow, and related partner services.',
+    'Kura Terms of Service for the Kura open-source wallet, operated by Rick Weng. Provided as is and used at your own risk.',
   path: '/tos',
-  keywords: 'terms of service, user agreement, Kura Finance LLC legal, arbitration',
+  keywords: 'terms of service, user agreement, Kura open source, arbitration',
 })
 </script>

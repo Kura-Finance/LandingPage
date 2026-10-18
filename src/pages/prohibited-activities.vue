@@ -3,7 +3,7 @@
     <PageHero
       eyebrow="Legal"
       title="Prohibited Activities"
-      description="Last updated: July 16, 2026. Activities not allowed on Kura."
+      description="Last updated: October 18, 2026. Activities not allowed on Kura."
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
@@ -13,6 +13,7 @@
             This Prohibited Activities List is incorporated into the
             <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>.
             Violation may result in suspension, termination, reporting to partners or authorities, and forfeiture of referral or promotional benefits. We and our partners may apply additional restrictions.
+            This List applies to your use of the Service as operated by Rick Weng (the “Operator”). Your use of the published Kura source code is governed by its open-source license.
           </p>
         </section>
 
@@ -48,7 +49,7 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">4. Platform Integrity and Security</h2>
           <ul class="list-disc pl-6 mt-3 space-y-2 text-kura-text-secondary leading-relaxed">
             <li>Attempt to gain unauthorized access to systems, wallets, keys, or other users’ data.</li>
-            <li>Probe, scan, reverse engineer (except as allowed by law), or interfere with the Service.</li>
+            <li>Probe, scan, attack, or interfere with the Service as operated by us. (Reading, forking, and running the published source code under its license is allowed.)</li>
             <li>Introduce malware, bots that abuse APIs, or denial-of-service attacks.</li>
             <li>Bypass authentication, geoblocking, KYC, or risk controls.</li>
             <li>Create multiple accounts to abuse promotions, referrals, or waitlists.</li>
@@ -109,6 +110,6 @@ usePageSeo({
   description:
     'Kura prohibited activities list covering sanctions, financial crime, platform abuse, and digital-asset misuse.',
   path: '/prohibited-activities',
-  keywords: 'prohibited activities, sanctions, AML, acceptable use, Kura Finance LLC legal',
+  keywords: 'prohibited activities, sanctions, AML, acceptable use, Kura open source',
 })
 </script>

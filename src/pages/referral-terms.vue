@@ -3,12 +3,16 @@
     <PageHero
       eyebrow="Legal"
       title="Referral Program Terms"
-      description="Last updated: July 16, 2026. Rules for earning referral revenue share on Kura."
+      description="Last updated: October 18, 2026. The Referral Program has been discontinued. These terms remain published for reference."
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
       <div class="prose max-w-none space-y-8">
         <section>
+          <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background mb-4">
+            <span class="font-semibold text-kura-text">Program discontinued.</span>
+            Kura Finance LLC has shut down and the Referral Program has been permanently discontinued. No new referrals are accepted and no new rewards accrue. Section 7 applies to any rewards that were pending when the Program ended. These Program Terms remain published for reference regarding past participation.
+          </p>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
             These Referral Program Terms (the “Program Terms”) supplement the
             <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>.
@@ -81,7 +85,7 @@
           <h2 class="text-2xl font-bold text-kura-text mb-4">9. Error Reporting</h2>
           <p class="text-kura-text-secondary leading-relaxed">
             Report apparent calculation or payout errors to
-            <a href="mailto:support@kura-finance.com" class="text-kura-primary hover:text-kura-accent">support@kura-finance.com</a>
+            <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>
             within thirty (30) days of the date the reward was credited or should have been credited. Failure to report within that period waives related claims to the fullest extent permitted by law.
           </p>
         </section>
@@ -111,8 +115,8 @@ definePageMeta({
 usePageSeo({
   title: 'Referral Program Terms',
   description:
-    'Kura referral program terms covering eligibility, eligible revenue, clawback, and payouts.',
+    'Kura referral program terms (program discontinued) covering eligibility, eligible revenue, clawback, and payouts.',
   path: '/referral-terms',
-  keywords: 'referral program, revenue share, Kura Finance LLC legal',
+  keywords: 'referral program, revenue share, Kura open source',
 })
 </script>

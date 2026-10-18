@@ -3,7 +3,7 @@
     <PageHero
       eyebrow="Trust, security & architecture"
       title="Documentation Center"
-      description="Product documentation, supported regions, privacy policies, and security architecture for Kura."
+      description="Policies, legacy coverage pages, and source code for Kura, now an open-source project."
       :divider="false"
     />
 
@@ -43,26 +43,24 @@
       </section>
 
       <section>
-        <h2 class="text-2xl font-bold tracking-tight mb-5">Architecture & technical</h2>
+        <h2 class="text-2xl font-bold tracking-tight mb-5">Source code</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <DocLinkCard
-            v-for="doc in architectureDocs"
-            :key="doc.title"
-            :title="doc.title"
-            :description="doc.description"
-            :category="doc.category"
-            status="Coming soon"
+            title="Kura on GitHub"
+            description="The full Kura stack is open source. Read, fork, and run it yourself. Copyright Prism Capital LLC."
+            category="Open source"
+            to="https://github.com/Kura-Finance"
           />
         </div>
       </section>
 
       <section class="card-surface p-8 md:p-10 text-center bg-kura-surface">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4">Need a specific document?</h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Legal or privacy question?</h2>
         <p class="text-kura-text-secondary max-w-2xl mx-auto mb-6 text-sm leading-relaxed">
-          Contact us if you need a dedicated security brief, procurement packet, or custom compliance documentation for your team.
+          Kura has no support team. For legal or privacy matters about the Service, email us.
         </p>
-        <a href="mailto:support@kura-finance.com" class="btn-primary">
-          Request documentation
+        <a href="mailto:legal@kura-finance.com" class="btn-primary">
+          Contact legal
         </a>
       </section>
     </main>
@@ -77,14 +75,16 @@ definePageMeta({
 const countryDocs = [
   {
     title: 'Stock Trading Countries',
-    description: 'Dinari dShares availability and restricted regions for tokenized US stock trading.',
+    description: 'Legacy reference: Dinari dShares coverage. US stock trading in Kura has been discontinued.',
     category: 'Dinari',
+    status: 'Discontinued',
     to: '/docs/stock-countries',
   },
   {
     title: 'On/Off-Ramp Countries',
-    description: 'Bridge.xyz bank rails and MoonPay debit/credit card coverage for fiat deposits and withdrawals.',
+    description: 'Legacy reference: Bridge.xyz and MoonPay coverage. Fiat deposits and withdrawals in Kura have been discontinued.',
     category: 'Bridge & MoonPay',
+    status: 'Discontinued',
     to: '/docs/on-off-ramp-countries',
   },
 ]
@@ -116,7 +116,7 @@ const trustDocs = [
   },
   {
     title: 'Referral Program Terms',
-    description: 'Eligibility, eligible revenue, clawback, and payout rules for referrals.',
+    description: 'Program discontinued. Rules that applied to past referral participation.',
     category: 'Legal',
     to: '/referral-terms',
   },
@@ -128,28 +128,10 @@ const trustDocs = [
   },
 ]
 
-const architectureDocs = [
-  {
-    title: 'Security Architecture Overview',
-    description: 'System-level view of encryption boundaries, access controls, and Zero-Access design.',
-    category: 'Architecture',
-  },
-  {
-    title: 'Data Disclosure & Lawful Request Policy',
-    description: 'What data can and cannot be disclosed based on architectural accessibility.',
-    category: 'Legal / Security',
-  },
-  {
-    title: 'Incident Response & Transparency',
-    description: 'How Kura handles security incidents, user notifications, and transparency reporting.',
-    category: 'Operations',
-  },
-]
-
 usePageSeo({
   title: 'Documentation',
-  description: 'Kura documentation for trust policies, privacy controls, partner integrations, and zero-access security architecture.',
+  description: 'Kura documentation: legal policies, legacy coverage pages, and the open-source code on GitHub.',
   path: '/docs',
-  keywords: 'Kura documentation, privacy policy, compliance, security architecture, trust center',
+  keywords: 'Kura documentation, privacy policy, compliance, open source, trust center',
 })
 </script>

@@ -3,14 +3,14 @@
     <PageHero
       eyebrow="Legal"
       title="Privacy Policy"
-      description="Last updated: July 16, 2026. How Kura collects, uses, and protects information."
+      description="Last updated: October 18, 2026. How Kura collects, uses, and protects information."
     />
 
     <div class="marketing-container max-w-3xl pb-20 md:pb-28">
       <div class="prose max-w-none space-y-8">
         <section>
           <p class="text-kura-text-secondary leading-relaxed text-sm border border-kura-border rounded-xl p-4 bg-kura-background">
-            This Privacy Policy explains how Kura Finance LLC (“Kura,” “we,” “us,” or “our”) handles personal information when you use our websites, applications, and related services (the “Service”). It should be read with our
+            This Privacy Policy explains how Rick Weng, an individual who operates Kura (the “Operator,” “we,” “us,” or “our”), handles personal information when you use the Kura websites, applications, and related services (the “Service”). Kura Finance LLC, which previously operated the Service, has been dissolved; personal information it held in connection with the Service is now handled by the Operator under this Policy. It should be read with our
             <NuxtLink to="/tos" class="text-kura-primary hover:text-kura-accent">Terms of Service</NuxtLink>
             and
             <NuxtLink to="/compliance" class="text-kura-primary hover:text-kura-accent">Trust &amp; Security Center</NuxtLink>.
@@ -20,16 +20,20 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Who We Are</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Controller: Kura Finance LLC, registered in Wyoming, USA. Mailing address: 1007 N Orange St. 4th Floor 5629, Wilmington, DE 19801. Privacy contact:
-            <a href="mailto:privacy@kura-finance.com" class="text-kura-primary hover:text-kura-accent">privacy@kura-finance.com</a>
-            (or
-            <a href="mailto:support@kura-finance.com" class="text-kura-primary hover:text-kura-accent">support@kura-finance.com</a>).
+            Controller: Rick Weng, an individual, who operates the Service. Privacy contact:
+            <a href="mailto:privacy@kura-finance.com" class="text-kura-primary hover:text-kura-accent">privacy@kura-finance.com</a>.
+          </p>
+          <p class="text-kura-text-secondary leading-relaxed mt-3">
+            Kura is now an open-source project. The source code is copyright Prism Capital LLC and published on GitHub. If you run your own copy of the code, you are responsible for any personal information it processes; this Policy covers only the Service as operated by us.
           </p>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">2. Information We Collect</h2>
           <p class="text-kura-text-secondary leading-relaxed">
+            Kura Finance LLC has shut down and only basic wallet features are maintained. Because card, fiat ramp, securities, TrackFi, subscription, and referral features are discontinued, we no longer collect new verification, card display, connected-account, billing, or referral data. The categories below include data collected while those features were available, which may still be retained as described in Section 8.
+          </p>
+          <p class="text-kura-text-secondary leading-relaxed mt-3">
             We follow a minimization-first policy and collect only what is needed to operate the Service:
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-2 text-kura-text-secondary leading-relaxed">
@@ -40,14 +44,14 @@
             <li><span class="font-semibold text-kura-text">Referral data</span> — referral codes, referred-user relationships, payout status, and related identifiers needed to operate the referral program.</li>
             <li><span class="font-semibold text-kura-text">Card display data</span> — if a virtual card is shown in-app, we may temporarily receive masked or full card details from the card partner solely to display them to you. We do not store full PAN except as required to render the display session, and we do not use card numbers for marketing.</li>
             <li><span class="font-semibold text-kura-text">Technical data</span> — device, app version, diagnostics, IP address, approximate location derived from IP, crash logs, and security signals needed for reliability and fraud prevention.</li>
-            <li><span class="font-semibold text-kura-text">Communications</span> — messages you send to support or legal inboxes, and related metadata.</li>
+            <li><span class="font-semibold text-kura-text">Communications</span> — messages you send to our privacy or legal inboxes, and related metadata.</li>
           </ul>
         </section>
 
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">3. How We Use Information</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            We use information to: provide and secure the Service; provision wallets; facilitate trading, transfers, earn/borrow, card, and ramp flows through partners; operate subscriptions and referrals; prevent fraud and abuse; comply with law; improve reliability; and communicate service notices. We do not sell your personal or financial data, and we do not use TrackFi financial records for advertising, ad targeting, or behavioral profiling.
+            We use information to: provide and secure the Service; provision wallets; facilitate the features that remain available (such as transfers, swaps, and Morpho earn/borrow); keep records of discontinued features as required by law; prevent fraud and abuse; comply with law; improve reliability; and communicate service notices. We do not sell your personal or financial data, and we do not use TrackFi financial records for advertising, ad targeting, or behavioral profiling.
           </p>
         </section>
 
@@ -61,7 +65,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">5. Third-Party Processors and Partners</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            When you use a feature, the relevant partner processes data under its own privacy policy. Current categories include:
+            When you use a feature, the relevant partner processes data under its own privacy policy. The partners below include those used by features that are now discontinued; they may still hold data you gave them while those features were available:
           </p>
           <ul class="list-disc pl-6 mt-3 space-y-2 text-kura-text-secondary leading-relaxed">
             <li><span class="font-semibold text-kura-text">Privy</span> — authentication, OAuth, embedded wallet MPC key management.</li>
@@ -87,7 +91,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">7. Legal Requests and Disclosures</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            We may disclose information when we believe in good faith that disclosure is required by law, regulation, legal process, or governmental request; to enforce our Terms; or to protect Kura, users, or the public. What we can disclose depends on what is technically accessible. Typically this may include account identifiers, wallet addresses, device/IP logs, billing and referral records, and support correspondence — not TrackFi ciphertext plaintext. Partners that hold KYC may respond separately under their own obligations. On-chain transactions are public.
+            We may disclose information when we believe in good faith that disclosure is required by law, regulation, legal process, or governmental request; to enforce our Terms; or to protect us, users, or the public. What we can disclose depends on what is technically accessible. Typically this may include account identifiers, wallet addresses, device/IP logs, billing and referral records, and support correspondence — not TrackFi ciphertext plaintext. Partners that hold KYC may respond separately under their own obligations. On-chain transactions are public.
           </p>
         </section>
 
@@ -112,7 +116,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">9. International Transfers</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            We are based in the United States and may process data in the U.S. and other countries where our providers operate. Where required, we use appropriate transfer mechanisms such as Standard Contractual Clauses or provider certifications. By using the Service from outside the U.S., you understand your information may be transferred to jurisdictions with different data-protection laws.
+            We and our providers may process data in the United States and other countries where our providers operate. Where required, we use appropriate transfer mechanisms such as Standard Contractual Clauses or provider certifications. By using the Service from outside the U.S., you understand your information may be transferred to jurisdictions with different data-protection laws.
           </p>
         </section>
 
@@ -167,8 +171,6 @@
           <p class="text-kura-text-secondary leading-relaxed">
             Privacy requests:
             <a href="mailto:privacy@kura-finance.com" class="text-kura-primary hover:text-kura-accent">privacy@kura-finance.com</a>
-            · Support:
-            <a href="mailto:support@kura-finance.com" class="text-kura-primary hover:text-kura-accent">support@kura-finance.com</a>
             · Legal:
             <a href="mailto:legal@kura-finance.com" class="text-kura-primary hover:text-kura-accent">legal@kura-finance.com</a>.
           </p>
@@ -194,6 +196,6 @@ usePageSeo({
   description:
     'Kura privacy policy covering self-custody wallet, TrackFi encryption, partner integrations, retention, and zero-access data handling.',
   path: '/privacy',
-  keywords: 'privacy policy, GDPR, CCPA, zero-access, data protection, Kura Finance LLC legal',
+  keywords: 'privacy policy, GDPR, CCPA, zero-access, data protection, Kura open source',
 })
 </script>
