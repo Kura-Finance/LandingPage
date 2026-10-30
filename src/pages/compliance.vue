@@ -16,7 +16,7 @@
               <span class="font-semibold text-kura-text">Operator:</span> Rick Weng, an individual
             </p>
             <p class="text-kura-text-secondary">
-              <span class="font-semibold text-kura-text">Source code &amp; copyright:</span> Prism Capital LLC, published on
+              <span class="font-semibold text-kura-text">Source code &amp; copyright:</span> Rick Weng, published on
               <a href="https://github.com/Kura-Finance" target="_blank" rel="noopener noreferrer" class="text-kura-primary hover:text-kura-accent">GitHub</a>
             </p>
             <p class="text-kura-text-secondary">

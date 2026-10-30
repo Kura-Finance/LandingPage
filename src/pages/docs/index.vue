@@ -47,7 +47,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <DocLinkCard
             title="Kura on GitHub"
-            description="The full Kura stack is open source. Read, fork, and run it yourself. Copyright Prism Capital LLC."
+            description="The full Kura stack is open source. Read, fork, and run it yourself. Copyright Rick Weng."
             category="Open source"
             to="https://github.com/Kura-Finance"
           />

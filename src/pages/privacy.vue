@@ -24,7 +24,7 @@
             <a href="mailto:privacy@kura-finance.com" class="text-kura-primary hover:text-kura-accent">privacy@kura-finance.com</a>.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
-            Kura is now an open-source project. The source code is copyright Prism Capital LLC and published on GitHub. If you run your own copy of the code, you are responsible for any personal information it processes; this Policy covers only the Service as operated by us.
+            Kura is now an open-source project. The source code is copyright Rick Weng and published on GitHub. If you run your own copy of the code, you are responsible for any personal information it processes; this Policy covers only the Service as operated by us.
           </p>
         </section>
 

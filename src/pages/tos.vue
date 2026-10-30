@@ -152,7 +152,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">12. Intellectual Property; License</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            The source code of the Service is copyright Prism Capital LLC and is published on GitHub under the license stated in each repository. Your use, copying, modification, and distribution of that source code are governed by that license. These Terms govern your use of the Service as operated by us. “Kura” and related names and logos identify the Service; these Terms do not grant you any right to use them. Feedback you provide may be used by us without restriction or compensation.
+            The source code of the Service is copyright Rick Weng and is published on GitHub under the license stated in each repository. Your use, copying, modification, and distribution of that source code are governed by that license. These Terms govern your use of the Service as operated by us. “Kura” and related names and logos identify the Service; these Terms do not grant you any right to use them. Feedback you provide may be used by us without restriction or compensation.
           </p>
         </section>
 

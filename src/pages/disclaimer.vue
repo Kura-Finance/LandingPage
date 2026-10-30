@@ -20,7 +20,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">1. Open-Source Software, Not a Bank</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Kura is open-source software operated by Rick Weng, an individual (the “Operator”). The source code is copyright Prism Capital LLC. Kura Finance LLC, which previously developed and operated Kura, has been dissolved. None of them is a bank, broker-dealer, money transmitter, exchange, custodian, or investment adviser. Crypto assets and tokenized securities are volatile and are not insured by the FDIC, SIPC, FSCS, or any government agency.
+            Kura is open-source software operated by Rick Weng, an individual (the “Operator”). The source code is copyright Rick Weng. Kura Finance LLC, which previously developed and operated Kura, has been dissolved. None of them is a bank, broker-dealer, money transmitter, exchange, custodian, or investment adviser. Crypto assets and tokenized securities are volatile and are not insured by the FDIC, SIPC, FSCS, or any government agency.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             <span class="font-semibold text-kura-text">Unmaintained and discontinued services.</span>
