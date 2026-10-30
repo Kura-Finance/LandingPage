@@ -108,7 +108,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">13. No Fiduciary Duty</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            Your use of Kura does not create a fiduciary, advisory, or principal-agent relationship with the Operator, Prism Capital LLC, or any contributor to the Kura open-source project. You alone evaluate the merits and risks of any tool, asset, or information.
+            Your use of Kura does not create a fiduciary, advisory, or principal-agent relationship with the Operator (Rick Weng) or any contributor to the Kura open-source project. You alone evaluate the merits and risks of any tool, asset, or information.
           </p>
         </section>
 

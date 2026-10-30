@@ -190,7 +190,7 @@
         <section>
           <h2 class="text-2xl font-bold text-kura-text mb-4">17. Limitation of Liability</h2>
           <p class="text-kura-text-secondary leading-relaxed">
-            To the maximum extent permitted by law, the Operator, Prism Capital LLC, and the contributors to the Kura open-source project (together, the “Kura Parties”) will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, revenue, data, goodwill, digital assets, or business opportunity, arising out of or related to the Service or these Terms, whether based in contract, tort, or otherwise, even if advised of the possibility.
+            To the maximum extent permitted by law, the Operator (Rick Weng) and the contributors to the Kura open-source project (together, the “Kura Parties”) will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, revenue, data, goodwill, digital assets, or business opportunity, arising out of or related to the Service or these Terms, whether based in contract, tort, or otherwise, even if advised of the possibility.
           </p>
           <p class="text-kura-text-secondary leading-relaxed mt-3">
             Without limiting the above, and to the maximum extent permitted by law, the Kura Parties are not liable for any loss arising from your use of the Service, including but not limited to loss caused by:
